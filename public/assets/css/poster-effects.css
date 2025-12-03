@@ -1,0 +1,48 @@
+/* Spotlight Effect */
+.poster-spotlight {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 150%;
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: overlay;
+    opacity: 0;
+    animation: spotlight-fade-in 1.5s ease-out forwards 0.5s;
+}
+
+@keyframes spotlight-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Backdrop Shadow - The "Ghost" Shadow behind */
+.poster-backdrop-shadow {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    filter: blur(20px);
+    transform: translateZ(-100px) rotateY(-25deg) rotateX(10deg) rotateZ(-2deg) scale(0.95);
+    z-index: -1;
+    opacity: 0.6;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.poster-wrapper:hover .poster-backdrop-shadow {
+    transform: translateZ(-50px) rotateY(0) rotateX(0) rotateZ(0) scale(1);
+    top: 5%;
+    left: 0;
+    opacity: 0.4;
+    filter: blur(30px);
+}

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự Án Phim - 1% Hy Vọng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts - Vietnamese Supported & Cinematic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="public/assets/css/styles.css">
+    <link rel="stylesheet" href="public/assets/css/poster-effects.css">
+</head>
+
+<body>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="public/assets/images/logo.png" alt="Logo"
+                    class="w-10 h-10 rounded object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                <img src="public/assets/images/title.png" alt="1% Hy Vọng"
+                    class="h-8 object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300">
+            </a>
+            <div class="hidden md:flex gap-10">
+                <a href="#team">Đội Ngũ</a>
+                <a href="#members">Thành Viên</a>
+                <a href="#rules">Quy Tắc</a>
+                <a href="#content">Câu Chuyện</a>
+                <a href="#memories">Kí Ức</a>
+            </div>
+            <!-- Mobile Menu Button (Optional) -->
+            <button class="md:hidden text-white text-2xl">
+                <i class="ti ti-menu-2"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-spotlight"></div>
+
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1200">
+                <div class="hero-tag animate__animated animate__fadeInDown">
+                    <i class="ti ti-movie"></i> Phim Ngắn 2025
+                </div>
+
+                <h1 class="hero-title">
+                    <img src="public/assets/images/title.png" alt="1% Hy Vọng" class="max-w-full h-auto md:max-w-lg">
+                </h1>
+                <p class="hero-subtitle">"Dám thử, cơ hội không còn là 0"</p>
+
+                <div class="hero-desc">
+                    Giữa những lạc lối và áp lực, Phú tìm thấy một tia sáng.
+                    Một câu chuyện về sự trưởng thành, nỗi sợ hãi và lòng dũng cảm để bước tiếp trên con đường đã chọn.
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#content" class="btn-primary">
+                        <i class="ti ti-player-play-filled"></i>
+                        Xem Trailer
+                    </a>
+                    <a href="#team" class="btn-secondary">
+                        Tìm hiểu thêm
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Content - Poster -->
+            <div class="poster-wrapper" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                <div class="poster-spotlight"></div>
+                <div class="poster-backdrop-shadow"></div>
+                <img src="public/assets/images/illustrators/poster_dark.png" alt="Poster Phim 1% Hy Vọng"
+                    class="poster-img">
+                <!-- Reflection effect -->
+                <div class="poster-reflection"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16">
+                <div class="md:col-span-4" data-aos="fade-up">
+                    <div class="section-header">
+                        <h2 class="section-title">Về <br><span>Nhóm</span></h2>
+                        <p class="text-gray-400 text-lg mt-6 font-light">
+                            Chúng tôi là những người trẻ đam mê điện ảnh, cùng nhau kể những câu chuyện chân thật nhất.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-icon"><i class="ti ti-telescope"></i></div>
+                            <h3>Tầm Nhìn</h3>
+                            <p>Kiến tạo những giấc mơ điện ảnh độc lập, nơi mỗi khung hình đều mang đậm dấu ấn cá nhân
+                                và cảm xúc chân thật.</p>
+                        </div>
+                        <div class="card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-icon"><i class="ti ti-target-arrow"></i></div>
+                            <h3>Sứ Mệnh</h3>
+                            <p>Kể những câu chuyện chưa từng được kể. Chạm sâu vào tâm hồn người xem và khơi dậy niềm
+                                tin vào những điều tốt đẹp.</p>
+                        </div>
+                        <div class="card md:col-span-2" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card-icon"><i class="ti ti-diamond"></i></div>
+                            <h3>Giá Trị Cốt Lõi</h3>
+                            <p>Đam mê là ngọn lửa. Sáng tạo là con đường. Và sự tử tế chính là nền tảng vững chắc nhất
+                                cho mọi thành công của chúng tôi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
+                <div>
+                    <h2 class="section-title">Diễn Viên & <span>Ekip</span></h2>
+                    <p class="text-gray-400">Những mảnh ghép tạo nên bức tranh hoàn chỉnh</p>
+                </div>
+                <div class="hidden md:block w-32 h-[1px] bg-white/20 mb-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Member 1 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="public/assets/images/avatars/hienanh.jpg" alt="Hien Anh" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=HA&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/hienanh.html">Hiền Anh</a></h3>
+                            <p class="member-role">Producer / Leader</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="public/assets/images/avatars/an.jpg" alt="Nhat An" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=NA&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/an.html">Nhất An</a></h3>
+                            <p class="member-role">Cinematographer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="public/assets/images/avatars/khai.jpg" alt="Minh Khai" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=MK&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/khai.html">Minh Khải</a></h3>
+                            <p class="member-role">Art Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="public/assets/images/avatars/duoc.jpg" alt="Hoang Duoc" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=HD&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/duoc.html">Hoàng Được</a></h3>
+                            <p class="member-role">Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="public/assets/images/avatars/hung.jpg" alt="Gia Hung" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=GH&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/hung.html">Gia Hưng</a></h3>
+                            <p class="member-role">Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 6 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://nmcntt.ndtp.io.vn/cdn/shop/files/IMG_8596.jpg?v=1763794829&width=600"
+                        alt="Thuan Phat" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=TP&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/phat.html">Thuận Phát</a></h3>
+                            <p class="member-role">Tech Lead</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 7 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="public/assets/images/avatars/phuc.jpg" alt="Tan Phuc" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=TP&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/phuc.html">Tấn Phúc</a></h3>
+                            <p class="member-role">Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 8 -->
+                <div class="member-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="public/assets/images/avatars/phu.jpg" alt="Tan Phu" class="member-img"
+                        onerror="this.src='https://ui-avatars.com/api/?name=TP&background=random&color=fff&background=f97316'">
+                    <div class="member-overlay">
+                        <div class="member-info">
+                            <h3 class="member-name"><a href="profile/phu.html">Tấn Phú</a></h3>
+                            <p class="member-role">Screenwriter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-start">
+                <div data-aos="fade-right">
+                    <div class="section-header">
+                        <h2 class="section-title">Quy Tắc <br><span>Sản Xuất</span></h2>
+                        <p class="text-gray-400 mt-6 leading-relaxed">
+                            Để đảm bảo chất lượng dự án, chúng tôi tuân thủ nghiêm ngặt các nguyên tắc làm việc chuyên
+                            nghiệp. Sự kỷ luật tạo nên sự tự do trong sáng tạo.
+                        </p>
+                    </div>
+
+                    <div class="bg-white/5 p-8 rounded-lg border border-white/10 mt-8 backdrop-blur-sm">
+                        <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                            <i class="ti ti-signature text-orange-500 text-2xl"></i> Cam Kết Thành Viên
+                        </h4>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-400 font-mono">
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Hiền Anh
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Nhất An
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Minh Khải
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Nguyễn Được
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Gia Hưng
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Thuận Phát
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Tấn Phúc
+                            </div>
+                            <div class="flex items-center gap-2"><i class="ti ti-check text-orange-500"></i> Tấn Phú
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2" data-aos="fade-left">
+                    <div class="rule-card">
+                        <h4><span class="rule-number">01.</span> Trách Nhiệm</h4>
+                        <p>Hoàn thành nhiệm vụ đúng hạn. Thông báo trước 24h nếu có vấn đề phát sinh.</p>
+                    </div>
+                    <div class="rule-card">
+                        <h4><span class="rule-number">02.</span> Giao Tiếp</h4>
+                        <p>Phản hồi tin nhắn trong vòng 24h. Tôn trọng ý kiến của mọi thành viên.</p>
+                    </div>
+                    <div class="rule-card">
+                        <h4><span class="rule-number">03.</span> Chủ Động</h4>
+                        <p>Không thụ động chờ việc. Luôn tìm kiếm giải pháp trước khi đặt câu hỏi.</p>
+                    </div>
+                    <div class="rule-card" style="border-bottom-color: rgba(239, 68, 68, 0.3);">
+                        <h4 style="color: #ef4444;"><span class="rule-number" style="color: #ef4444;">04.</span> Cấm Kỵ
+                        </h4>
+                        <p>Vắng mặt không lý do. Thiếu tôn trọng đồng đội. Làm việc hời hợt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content/Story Section -->
+    <section id="content">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="section-title">Câu <span>Chuyện</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto mt-6">
+                </div>
+            </div>
+
+            <div class="prose prose-invert prose-xl mx-auto" data-aos="fade-up">
+                <p class="font-serif text-3xl italic text-gray-300 leading-relaxed mb-16">
+                    "Giữa dòng đời hối hả, chúng ta thường quên mất việc dừng lại để lắng nghe chính mình.
+                    <span class="text-orange-500">1% Hy Vọng</span> là tiếng nói của những người trẻ đang loay hoay tìm
+                    lối đi."
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div
+                        class="bg-white/5 p-8 rounded-lg border border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-4xl mb-6 text-orange-500"><i class="ti ti-movie"></i></div>
+                        <h4 class="text-xl font-bold mb-3 text-white font-serif">Hiện Thực</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">Phản ánh chân thực áp lực đồng trang lứa và sự
+                            kỳ vọng của xã
+                            hội lên vai người trẻ.</p>
+                    </div>
+                    <div
+                        class="bg-white/5 p-8 rounded-lg border border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-4xl mb-6 text-orange-500"><i class="ti ti-sparkles"></i></div>
+                        <h4 class="text-xl font-bold mb-3 text-white font-serif">Hy Vọng</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">Dù chỉ còn 1% cơ hội, đó vẫn là lý do đủ lớn để
+                            chúng ta tiếp
+                            tục cố gắng và không bỏ cuộc.</p>
+                    </div>
+                    <div
+                        class="bg-white/5 p-8 rounded-lg border border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:-translate-y-2">
+                        <div class="text-4xl mb-6 text-orange-500"><i class="ti ti-music"></i></div>
+                        <h4 class="text-xl font-bold mb-3 text-white font-serif">Cảm Xúc</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed">Hòa quyện giữa hình ảnh cinematic và âm nhạc
+                            sâu lắng để chạm
+                            đến trái tim khán giả.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section id="memories">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div class="section-header mb-0">
+                    <h2 class="section-title">Hậu <span>Trường</span></h2>
+                    <p class="text-gray-400 mt-2">Những khoảnh khắc đáng nhớ sau ống kính</p>
+                </div>
+
+                <div class="flex gap-2 mt-8 md:mt-0" id="memories-filters">
+                    <!-- Filters injected by JS -->
+                </div>
+            </div>
+
+            <div id="memories-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Grid injected by JS -->
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="memories-lightbox" class="fixed inset-0 hidden items-center justify-center z-[100]">
+            <div id="memories-lightbox-backdrop" class="absolute inset-0 bg-black/95 backdrop-blur-md"></div>
+            <div id="memories-lightbox-content" class="relative max-w-6xl w-full p-4 z-10 flex flex-col items-center">
+                <button id="memories-lightbox-close"
+                    class="absolute top-4 right-4 text-white/50 hover:text-white text-3xl transition-colors">
+                    <i class="ti ti-x"></i>
+                </button>
+
+                <div class="w-full h-[80vh] flex items-center justify-center">
+                    <img id="memories-lightbox-img" class="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+                        style="display:none;">
+                    <video id="memories-lightbox-video" class="max-w-full max-h-full shadow-2xl rounded-sm" controls
+                        style="display:none;">
+                        <source id="memories-lightbox-video-src" src="" type="video/mp4">
+                    </video>
+                </div>
+
+                <p id="memories-lightbox-cap" class="text-center text-orange-500 mt-6 font-serif italic text-xl"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <a href="#" class="inline-block mb-10">
+                <span class="font-bold text-3xl tracking-[0.2em] text-white font-serif">1% HY VỌNG</span>
+            </a>
+
+            <div class="flex justify-center gap-10 mb-12 text-xs uppercase tracking-[0.2em] text-gray-500 font-medium">
+                <a href="#team" class="hover:text-white transition-colors">Team</a>
+                <a href="#content" class="hover:text-white transition-colors">Story</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="#"
+                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:border-orange-500 hover:text-orange-500 transition-all duration-300">
+                    <i class="ti ti-brand-facebook text-xl"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:border-orange-500 hover:text-orange-500 transition-all duration-300">
+                    <i class="ti ti-brand-instagram text-xl"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:border-orange-500 hover:text-orange-500 transition-all duration-300">
+                    <i class="ti ti-brand-youtube text-xl"></i>
+                </a>
+            </div>
+
+            <p class="text-gray-600 text-xs tracking-wider">
+                &copy; 2025 Mỉm cười vì điểm 10. All rights reserved.<br>
+                Designed with passion for Cinema.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar Scroll Effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Memories Logic
+        const memGrid = document.getElementById('memories-grid');
+        const memFilters = document.getElementById('memories-filters');
+        const lightbox = document.getElementById('memories-lightbox');
+        const lbImg = document.getElementById('memories-lightbox-img');
+        const lbVid = document.getElementById('memories-lightbox-video');
+        const lbVidSrc = document.getElementById('memories-lightbox-video-src');
+        const lbCap = document.getElementById('memories-lightbox-cap');
+
+        const media = [
+            { type: 'image', src: 'public/assets/images/memories/IMG_1623.PNG', label: 'Hậu trường' },
+            { type: 'image', src: 'public/assets/images/memories/IMG_1624.png', label: 'Hậu trường' },
+            { type: 'image', src: 'public/assets/images/memories/IMG_1625.png', label: 'Hậu trường' },
+            { type: 'image', src: 'public/assets/images/memories/IMG_1627.HEIC', label: 'Hậu trường' },
+            { type: 'video', src: 'public/assets/images/memories/IMG_1595.MOV', label: 'Cảnh quay 1' },
+            { type: 'video', src: 'public/assets/images/memories/IMG_1641.MOV', label: 'Cảnh quay 2' },
+            { type: 'video', src: 'public/assets/images/memories/IMG_1622.MOV', label: 'Cảnh quay 3' }
+        ];
+
+        let currentFilter = 'all';
+
+        function renderMemories(filter) {
+            currentFilter = filter;
+            renderFilters();
+
+            memGrid.innerHTML = media.map((item, i) => {
+                if (filter !== 'all' && item.type !== filter) return '';
+
+                let content = '';
+                if (item.type === 'image') {
+                    content = `<img src="${item.src}" alt="${item.label}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">`;
+                } else {
+                    content = `
+                        <video src="${item.src}" muted class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"></video>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-orange-500 group-hover:border-orange-500 transition-all">
+                            <i class="ti ti-player-play-filled"></i>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="memory-item relative aspect-square bg-gray-900 overflow-hidden group cursor-pointer rounded-sm" onclick="openLightbox(${i})" data-aos="fade-up" data-aos-delay="${i * 50}">
+                        ${content}
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <span class="text-white text-xs uppercase tracking-wider font-medium">${item.label}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderFilters() {
+            const filters = [
+                { id: 'all', label: 'Tất Cả' },
+                { id: 'image', label: 'Hình Ảnh' },
+                { id: 'video', label: 'Video' }
+            ];
+
+            memFilters.innerHTML = filters.map(f => `
+                <button onclick="renderMemories('${f.id}')" 
+                    class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${currentFilter === f.id ? 'bg-orange-600 border-orange-600 text-white' : 'bg-transparent border-white/10 text-gray-400 hover:border-white hover:text-white'}">
+                    ${f.label}
+                </button>
+            `).join('');
+        }
+
+        window.openLightbox = (index) => {
+            const item = media[index];
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            lbCap.textContent = item.label;
+
+            if (item.type === 'image') {
+                lbImg.src = item.src;
+                lbImg.style.display = 'block';
+                lbVid.style.display = 'none';
+            } else {
+                lbVidSrc.src = item.src;
+                lbVid.load();
+                lbVid.style.display = 'block';
+                lbImg.style.display = 'none';
+                lbVid.play();
+            }
+        };
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            lbVid.pause();
+        }
+
+        document.getElementById('memories-lightbox-close').onclick = closeLightbox;
+        document.getElementById('memories-lightbox-backdrop').onclick = closeLightbox;
+
+        renderMemories('all');
+
+    </script>
+</body>
+
+</html>

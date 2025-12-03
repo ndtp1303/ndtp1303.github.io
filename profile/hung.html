@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile — Trương Gia Hưng</title>
+    <link href="https://unpkg.com/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" rel="stylesheet">
+    <style>
+        :root { --bg:#0f0f10; --surface:#151517; --bg-alt:#1b1b1e; --text:#e6e6e6; --muted:#a0a0a0; --border:#2a2a2d; --accent:#c9a961; --accent-strong:#b6913f; --shadow:rgba(0,0,0,0.35); }
+        body { margin:0; background:var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+        .container { max-width:1000px; margin:0 auto; padding:28px; }
+        .nav { display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
+        .nav a { color:var(--text); text-decoration:none; }
+        .card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; }
+        .profile { display:flex; gap:20px; align-items:center; }
+        .avatar { width:96px; height:96px; border-radius:50%; border:2px solid var(--border); object-fit:cover; }
+        h1 { font-size:1.6rem; margin:0; }
+        .role { color:var(--accent); margin-top:4px; }
+        .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px; margin-top:24px; }
+        .memory-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
+        .memory-card img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; }
+        .badge { position:absolute; bottom:8px; left:8px; font-size:12px; padding:4px 8px; border-radius:6px; border:1px solid var(--border); background:var(--bg-alt); color:var(--text); }
+        .figure { position:relative; }
+        .back { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg-alt); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a class="back" href="../index.html"><i class="ti ti-arrow-left"></i>Trang chủ</a>
+            <div style="color: var(--accent); font-weight: 600;">Profile</div>
+        </div>
+        <div class="card">
+            <div class="profile">
+                <img class="avatar" src="../public/assets/images/avatars/hung.jpg" alt="Trương Gia Hưng" onerror="this.style.display='none'">
+                <div>
+                    <h1>Trương Gia Hưng</h1>
+                    <div class="role">Code Web</div>
+                    <div style="color: var(--muted); margin-top: 6px;">Xây dựng và tối ưu hoá website.</div>
+                </div>
+            </div>
+            <div class="grid" id="grid"></div>
+        </div>
+    </div>
+    <script>
+        const folder = 'Hưng';
+        const images = ['407017a3b5471ae356d05f241de98398.JPEG','53c2759c63237c750a8dcdeafc4a05d2.JPEG'];
+        const grid = document.getElementById('grid');
+        function urlFor(name){ return '../public/assets/images/memories/' + encodeURIComponent(folder) + '/' + name; }
+        grid.innerHTML = images.map(n => '<figure class="memory-card"><div class="figure"><img src="' + urlFor(n) + '" alt="' + folder + '"><div class="badge">' + folder + '</div></div></figure>').join('');
+    </script>
+</body>
+</html>
+
