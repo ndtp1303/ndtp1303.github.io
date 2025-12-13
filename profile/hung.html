@@ -1,54 +1,203 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile — Trương Gia Hưng</title>
-    <link href="https://unpkg.com/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons & Animation -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        :root { --bg:#0f0f10; --surface:#151517; --bg-alt:#1b1b1e; --text:#e6e6e6; --muted:#a0a0a0; --border:#2a2a2d; --accent:#c9a961; --accent-strong:#b6913f; --shadow:rgba(0,0,0,0.35); }
-        body { margin:0; background:var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-        .container { max-width:1000px; margin:0 auto; padding:28px; }
-        .nav { display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
-        .nav a { color:var(--text); text-decoration:none; }
-        .card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; }
-        .profile { display:flex; gap:20px; align-items:center; }
-        .avatar { width:96px; height:96px; border-radius:50%; border:2px solid var(--border); object-fit:cover; }
-        h1 { font-size:1.6rem; margin:0; }
-        .role { color:var(--accent); margin-top:4px; }
-        .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px; margin-top:24px; }
-        .memory-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; }
-        .memory-card img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; }
-        .badge { position:absolute; bottom:8px; left:8px; font-size:12px; padding:4px 8px; border-radius:6px; border:1px solid var(--border); background:var(--bg-alt); color:var(--text); }
-        .figure { position:relative; }
-        .back { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg-alt); }
+        :root {
+            --bg-main: #050505;
+            --accent: #ea580c;
+            --text-muted: #a1a1aa;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: #fff;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Grain Overlay */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+
+        /* Image Hover Effect */
+        .memory-item img {
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(20%) brightness(0.9);
+        }
+
+        .memory-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%) brightness(1.1);
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="nav">
-            <a class="back" href="../index.html"><i class="ti ti-arrow-left"></i>Trang chủ</a>
-            <div style="color: var(--accent); font-weight: 600;">Profile</div>
-        </div>
-        <div class="card">
-            <div class="profile">
-                <img class="avatar" src="../public/assets/images/avatars/hung.jpg" alt="Trương Gia Hưng" onerror="this.style.display='none'">
-                <div>
-                    <h1>Trương Gia Hưng</h1>
-                    <div class="role">Code Web</div>
-                    <div style="color: var(--muted); margin-top: 6px;">Xây dựng và tối ưu hoá website.</div>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 p-6 flex justify-between items-center mix-blend-difference">
+        <a href="../index.html" class="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
+            <i class="ti ti-arrow-left text-xl group-hover:-translate-x-1 transition-transform"></i>
+            <span class="text-sm font-medium tracking-widest uppercase">Trở về</span>
+        </a>
+    </nav>
+
+    <main class="min-h-screen relative">
+        <!-- Hero Profile Section -->
+        <section class="relative pt-32 pb-20 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left: Portrait -->
+                <div class="lg:col-span-5 relative" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="relative aspect-[3/4] overflow-hidden rounded-sm shadow-2xl group">
+                        <div class="absolute inset-0 border border-white/10 z-20 pointer-events-none"></div>
+                        <img src="../public/assets/images/avatars/hung.jpg" alt="Trương Gia Hưng"
+                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                            onerror="this.src='https://ui-avatars.com/api/?name=GH&background=111&color=fff'">
+
+                        <!-- Decorative Elements -->
+                        <div
+                            class="absolute -bottom-6 -right-6 w-24 h-24 border-r border-b border-orange-500/50 hidden md:block">
+                        </div>
+                        <div
+                            class="absolute -top-6 -left-6 w-24 h-24 border-l border-t border-white/10 hidden md:block">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="lg:col-span-7 space-y-8" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <span
+                                class="px-3 py-1 bg-orange-600/10 border border-orange-600/30 text-orange-500 text-xs font-bold tracking-[0.2em] uppercase rounded-full">
+                                Web Developer
+                            </span>
+                            <span
+                                class="flex items-center gap-2 text-gray-400 text-sm font-medium uppercase tracking-wider">
+                                <i class="ti ti-zodiac-capricorn text-orange-500"></i> Ma Kết
+                            </span>
+                        </div>
+
+                        <h1 class="font-serif text-5xl md:text-7xl font-medium leading-tight text-white mb-2">
+                            Trương Gia <br>
+                            <span class="text-gray-500">Hưng</span>
+                        </h1>
+                    </div>
+
+                    <blockquote class="border-l-2 border-orange-500 pl-6 py-2">
+                        <p class="font-serif text-xl md:text-2xl text-gray-300 italic leading-relaxed">
+                            "Code sao chạy đc là đc"
+                        </p>
+                    </blockquote>
+
+                    <div class="text-gray-400 font-light leading-relaxed max-w-2xl text-sm md:text-base">
+                        <p>
+                            Luôn tìm kiếm giải pháp nhanh nhất. Thực tế và hướng đến kết quả cuối cùng.
+                        </p>
+                    </div>
+
+                    <!-- Stats / Meta -->
+                    <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
+                        <div>
+                            <span class="block text-3xl font-serif text-white">03</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-widest mt-1 block">Kỉ Niệm</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-serif text-white">2025</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-widest mt-1 block">Niên Khóa</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="grid" id="grid"></div>
-        </div>
-    </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="max-w-7xl mx-auto px-6 pb-32">
+            <div class="mb-12 flex items-end justify-between border-b border-white/10 pb-6" data-aos="fade-up">
+                <h2 class="font-serif text-3xl md:text-4xl text-white">
+                    Memories <span class="text-orange-500 text-lg md:text-xl italic ml-2">Collection</span>
+                </h2>
+                <div class="text-xs text-gray-500 font-mono">FOLDER: HƯNG</div>
+            </div>
+
+            <div id="grid" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                <!-- Javascript will inject images here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({ once: true, offset: 50 });
+
         const folder = 'Hưng';
-        const images = ['407017a3b5471ae356d05f241de98398.JPEG','53c2759c63237c750a8dcdeafc4a05d2.JPEG'];
+        const images = ['IMG_7978.DNG', 'IMG_7980.DNG', 'IMG_7979.DNG'];
         const grid = document.getElementById('grid');
-        function urlFor(name){ return '../public/assets/images/memories/' + encodeURIComponent(folder) + '/' + name; }
-        grid.innerHTML = images.map(n => '<figure class="memory-card"><div class="figure"><img src="' + urlFor(n) + '" alt="' + folder + '"><div class="badge">' + folder + '</div></div></figure>').join('');
+
+        function urlFor(name) { return '../public/assets/images/memories/' + encodeURIComponent(folder) + '/' + name; }
+
+        grid.innerHTML = images.map((n, index) => `
+            <div class="memory-item relative break-inside-avoid rounded-sm overflow-hidden bg-white/5 cursor-pointer group" data-aos="fade-up" data-aos-delay="${index * 100}">
+                <img src="${urlFor(n)}" alt="${folder}" loading="lazy" class="w-full h-auto object-cover min-h-[200px]" onerror="this.parentElement.style.display='none'">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span class="text-orange-500 text-sm tracking-widest uppercase border border-orange-500 px-4 py-2">View</span>
+                </div>
+            </div>
+        `).join('');
     </script>
 </body>
-</html>
 
+</html>
