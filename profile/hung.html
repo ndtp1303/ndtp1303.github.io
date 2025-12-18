@@ -23,7 +23,7 @@
     <style>
         :root {
             --bg-main: #050505;
-            --accent: #ea580c;
+            --accent: #f47a4b;
             --text-muted: #a1a1aa;
         }
 
@@ -109,7 +109,7 @@
 
                         <!-- Decorative Elements -->
                         <div
-                            class="absolute -bottom-6 -right-6 w-24 h-24 border-r border-b border-orange-500/50 hidden md:block">
+                            class="absolute -bottom-6 -right-6 w-24 h-24 border-r border-b border-[#ff9b70]/50 hidden md:block">
                         </div>
                         <div
                             class="absolute -top-6 -left-6 w-24 h-24 border-l border-t border-white/10 hidden md:block">
@@ -122,12 +122,12 @@
                     <div>
                         <div class="flex items-center gap-4 mb-4">
                             <span
-                                class="px-3 py-1 bg-orange-600/10 border border-orange-600/30 text-orange-500 text-xs font-bold tracking-[0.2em] uppercase rounded-full">
+                                class="px-3 py-1 bg-[#f47a4b]/10 border border-[#f47a4b]/30 text-[#ff9b70] text-xs font-bold tracking-[0.2em] uppercase rounded-full">
                                 Web Developer
                             </span>
                             <span
                                 class="flex items-center gap-2 text-gray-400 text-sm font-medium uppercase tracking-wider">
-                                <i class="ti ti-zodiac-capricorn text-orange-500"></i> Ma Kết
+                                <i class="ti ti-zodiac-capricorn text-[#ff9b70]"></i> Ma Kết
                             </span>
                         </div>
 
@@ -137,7 +137,7 @@
                         </h1>
                     </div>
 
-                    <blockquote class="border-l-2 border-orange-500 pl-6 py-2">
+                    <blockquote class="border-l-2 border-[#ff9b70] pl-6 py-2">
                         <p class="font-serif text-xl md:text-2xl text-gray-300 italic leading-relaxed">
                             "Code sao chạy đc là đc"
                         </p>
@@ -168,7 +168,7 @@
         <section class="max-w-7xl mx-auto px-6 pb-32">
             <div class="mb-12 flex items-end justify-between border-b border-white/10 pb-6" data-aos="fade-up">
                 <h2 class="font-serif text-3xl md:text-4xl text-white">
-                    Memories <span class="text-orange-500 text-lg md:text-xl italic ml-2">Collection</span>
+                    Memories <span class="text-[#ff9b70] text-lg md:text-xl italic ml-2">Collection</span>
                 </h2>
                 <div class="text-xs text-gray-500 font-mono">FOLDER: HƯNG</div>
             </div>
@@ -193,7 +193,7 @@
             <div class="memory-item relative break-inside-avoid rounded-sm overflow-hidden bg-white/5 cursor-pointer group" data-aos="fade-up" data-aos-delay="${index * 100}">
                 <img src="${urlFor(n)}" alt="${folder}" loading="lazy" class="w-full h-auto object-cover min-h-[200px]" onerror="this.parentElement.style.display='none'">
                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span class="text-orange-500 text-sm tracking-widest uppercase border border-orange-500 px-4 py-2">View</span>
+                    <span class="text-[#ff9b70] text-sm tracking-widest uppercase border border-[#ff9b70] px-4 py-2">View</span>
                 </div>
             </div>
         `).join('');
