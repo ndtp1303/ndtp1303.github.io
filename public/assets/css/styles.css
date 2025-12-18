@@ -20,7 +20,7 @@
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
     background-color: var(--bg-main);
-    background-image: url('../images/background.png');
+    background-image: linear-gradient(rgba(5, 5, 5, 0.4), rgba(5, 5, 5, 0.4)), url('../images/background.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -542,7 +542,9 @@ footer {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}/* Spotlight Effect */
+}
+
+/* Spotlight Effect */
 .poster-spotlight {
     position: absolute;
     top: -30%;
@@ -589,4 +591,588 @@ footer {
     left: 0;
     opacity: 0.4;
     filter: blur(30px);
+}
+
+/* Enhanced Feature Cards for Team Section */
+.feature-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Animation for Poster Badge */
+@keyframes float-y {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating-badge {
+    animation: float-y 6s ease-in-out infinite;
+    z-index: 20;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Vintage Diary Book Section                                                 */
+/* -------------------------------------------------------------------------- */
+
+#memories {
+    overflow: hidden;
+    /* Enhance 3D effect containment */
+}
+
+.diary-stage {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    perspective: 2500px;
+    /* High perspective for less distortion */
+    padding: 20px 20px 60px 20px;
+}
+
+.diary-book {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.6;
+    /* Landscape book */
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    margin-bottom: 1rem;
+}
+
+/* Mobile: Single page portrait */
+@media (max-width: 768px) {
+    .diary-book {
+        aspect-ratio: 0.75;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+
+/* The Pages Container */
+.diary-pages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* Page Common Styles - Dark Theme */
+.diary-page {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+    background-image:
+        linear-gradient(to right, rgba(255, 155, 112, 0.03) 0%, transparent 10%),
+        /* Spine glow */
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 100px rgba(255, 155, 112, 0.02);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border: 1px solid rgba(255, 155, 112, 0.1);
+}
+
+@media (max-width: 768px) {
+    .diary-page {
+        width: 100%;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+    }
+}
+
+/* Positioning Pages */
+.diary-page.left {
+    left: 0;
+    transform-origin: right center;
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+    z-index: 1;
+}
+
+.diary-page.right {
+    right: 0;
+    transform-origin: left center;
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+    z-index: 1;
+}
+
+/* Flipper Logic */
+.page-flipper {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform-style: preserve-3d;
+    z-index: 10;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .page-flipper {
+        width: 100%;
+        right: auto;
+        left: 0;
+        transform-origin: left center;
+    }
+}
+
+/* Flipper Faces - Dark Theme */
+.flipper-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+    background-image:
+        linear-gradient(to right, rgba(255, 155, 112, 0.03) 0%, transparent 10%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    border: 1px solid rgba(255, 155, 112, 0.1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.flipper-face.front {
+    transform: rotateY(0deg);
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid rgba(255, 155, 112, 0.05);
+    z-index: 2;
+    background-image: linear-gradient(to right, rgba(255, 155, 112, 0.05) 0%, transparent 10%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.flipper-face.back {
+    transform: rotateY(180deg);
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid rgba(255, 155, 112, 0.05);
+    z-index: 1;
+    background-image: linear-gradient(to left, rgba(255, 155, 112, 0.05) 0%, transparent 10%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Fix mobile flipper faces */
+@media (max-width: 768px) {
+
+    .flipper-face.front,
+    .flipper-face.back {
+        border-radius: 2px;
+    }
+}
+
+/* Content Styling inside Page - Dark Theme */
+.page-inner {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    /* Outer padding */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.tape-strip {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 30%;
+    height: 24px;
+    background: rgba(255, 155, 112, 0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.6;
+    z-index: 10;
+    border: 1px solid rgba(255, 155, 112, 0.1);
+}
+
+.page-content-wrapper {
+    width: 85%;
+    height: 80%;
+    background: linear-gradient(145deg, #252525 0%, #1a1a1a 100%);
+    padding: 10px 10px 40px 10px;
+    /* Polaroid style - Dark */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform: rotate(1deg);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(255, 155, 112, 0.1);
+}
+
+.page-content-wrapper:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 155, 112, 0.1);
+    z-index: 20;
+    border-color: rgba(255, 155, 112, 0.2);
+}
+
+.page-media-container {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.page-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.05);
+    transition: all 0.5s;
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 2px solid rgba(255, 155, 112, 0.5);
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.page-content-wrapper:hover .page-media {
+    filter: brightness(1) contrast(1.1);
+}
+
+.page-content-wrapper:hover .video-play-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 155, 112, 0.4);
+}
+
+.page-caption {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls */
+.diary-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 20;
+}
+
+.diary-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+}
+
+.diary-btn:hover:not(:disabled) {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.diary-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Auto-play button */
+.diary-btn-autoplay {
+    background: rgba(255, 155, 112, 0.1);
+    border-color: rgba(255, 155, 112, 0.3);
+}
+
+.diary-btn-autoplay:hover:not(:disabled) {
+    background: rgba(255, 155, 112, 0.8);
+    border-color: rgba(255, 155, 112, 0.8);
+}
+
+.page-number {
+    font-family: 'Courier New', monospace;
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    min-width: 80px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark Book Cover Styles                                                      */
+/* -------------------------------------------------------------------------- */
+
+.diary-book-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.6;
+}
+
+@media (max-width: 768px) {
+    .diary-book-wrapper {
+        aspect-ratio: 0.75;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+
+/* Book Cover - Dark Theme */
+.book-cover {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    cursor: pointer;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+
+.book-cover-spine {
+    width: 30px;
+    background: linear-gradient(to right,
+        #0d0d0d 0%,
+        #1a1a1a 30%,
+        #252525 50%,
+        #1a1a1a 70%,
+        #0d0d0d 100%);
+    box-shadow:
+        inset -3px 0 8px rgba(255, 155, 112, 0.1),
+        inset 3px 0 8px rgba(0, 0, 0, 0.5),
+        2px 0 10px rgba(0, 0, 0, 0.8);
+    border-radius: 4px 0 0 4px;
+    flex-shrink: 0;
+}
+
+.book-cover-front {
+    flex: 1;
+    background: linear-gradient(135deg,
+        #1a1a1a 0%,
+        #0d0d0d 50%,
+        #1a1a1a 100%);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow:
+        5px 5px 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 50px rgba(0, 0, 0, 0.3),
+        inset 0 0 100px rgba(255, 155, 112, 0.03);
+    border: 1px solid rgba(255, 155, 112, 0.15);
+    overflow: hidden;
+}
+
+.book-cover-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.book-cover-content {
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.book-cover-ornament {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(to right,
+        transparent,
+        rgba(255, 155, 112, 0.6),
+        transparent);
+    margin: 0 auto;
+    position: relative;
+}
+
+.book-cover-ornament::before,
+.book-cover-ornament::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 155, 112, 0.6);
+    font-size: 10px;
+}
+
+.book-cover-ornament::before {
+    left: -15px;
+}
+
+.book-cover-ornament::after {
+    right: -15px;
+}
+
+.book-cover-ornament.top {
+    margin-bottom: 30px;
+}
+
+.book-cover-ornament.bottom {
+    margin-top: 30px;
+}
+
+.book-cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff9b70;
+    text-shadow:
+        0 0 20px rgba(255, 155, 112, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.book-cover-subtitle {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.book-cover-hint {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    animation: pulse-hint 2s ease-in-out infinite;
+}
+
+.book-cover-hint i {
+    font-size: 1.2rem;
+}
+
+@keyframes pulse-hint {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 0.8; transform: translateY(-3px); }
+}
+
+/* Hover Effects */
+.book-cover:hover .book-cover-front {
+    transform: rotateY(-15deg);
+    box-shadow:
+        10px 5px 40px rgba(0, 0, 0, 0.9),
+        inset 0 0 50px rgba(0, 0, 0, 0.3),
+        inset 0 0 100px rgba(255, 155, 112, 0.05);
+}
+
+.book-cover:hover .book-cover-title {
+    text-shadow:
+        0 0 30px rgba(255, 155, 112, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.book-cover:hover .book-cover-hint {
+    color: rgba(255, 155, 112, 0.8);
+}
+
+/* Opening Animation */
+.book-cover.opening .book-cover-front {
+    transform: rotateY(-180deg);
+}
+
+/* Close button style */
+.diary-btn-close {
+    background: rgba(255, 100, 100, 0.1);
+    border-color: rgba(255, 100, 100, 0.3);
+}
+
+.diary-btn-close:hover:not(:disabled) {
+    background: rgba(255, 100, 100, 0.8);
+    border-color: rgba(255, 100, 100, 0.8);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .book-cover-spine {
+        width: 20px;
+    }
+
+    .book-cover-title {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+
+    .book-cover-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .book-cover-content {
+        padding: 30px;
+    }
+
+    .book-cover-ornament {
+        width: 80px;
+    }
+
+    .book-cover-ornament.top {
+        margin-bottom: 20px;
+    }
+
+    .book-cover-ornament.bottom {
+        margin-top: 20px;
+    }
+
+    .book-cover-hint {
+        margin-top: 30px;
+    }
 }

@@ -124,37 +124,84 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team">
+    <section id="team" class="relative overflow-hidden">
+        <!-- Subtle decorative background element -->
+        <div
+            class="absolute top-1/2 left-0 w-full h-full bg-gradient-to-r from-orange-900/5 to-transparent -z-10 transform -translate-y-1/2">
+        </div>
+
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-16">
-                <div class="md:col-span-4" data-aos="fade-up">
-                    <div class="section-header">
-                        <h2 class="section-title">Về <br><span>Nhóm</span></h2>
-                        <p class="text-gray-400 text-lg mt-6 font-light">
-                            Chúng tôi là những người trẻ đam mê điện ảnh, cùng nhau kể những câu chuyện chân thật nhất.
-                        </p>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Column: Visual/Poster -->
+                <div class="relative group" data-aos="fade-right" data-aos-duration="1000">
+                    <div
+                        class="absolute inset-0 bg-[#f47a4b] opacity-10 blur-3xl rounded-full transform scale-75 group-hover:scale-90 transition-transform duration-700">
+                    </div>
+                    <div class="relative z-10">
+                        <img src="public/assets/images/illustrators/poster_dark.png" alt="Poster Phim"
+                            class="w-full max-w-md mx-auto shadow-2xl skew-y-1 transition-all duration-700 group-hover:skew-y-0 group-hover:scale-[1.02]"
+                            style="box-shadow: -20px 20px 60px rgba(0,0,0,0.5);">
+
+                        <!-- Floating quote badge -->
+                        <div
+                            class="absolute -bottom-6 -right-6 md:right-10 bg-[#1a1a1a]/90 backdrop-blur-md p-6 border-l-4 border-[#f47a4b] shadow-2xl max-w-xs floating-badge hidden md:block">
+                            <p class="text-gray-300 italic font-serif text-sm">"Điện ảnh là tấm gương phản chiếu những
+                                giấc mơ đời thực."</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="md:col-span-8">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="card-icon"><i class="ti ti-telescope"></i></div>
-                            <h3>Tầm Nhìn</h3>
-                            <p>Kiến tạo những giấc mơ điện ảnh độc lập, nơi mỗi khung hình đều mang đậm dấu ấn cá nhân
-                                và cảm xúc chân thật.</p>
+                <!-- Right Column: Content -->
+                <div class="team-content space-y-10" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="section-header mb-0">
+                        <h2 class="section-title">Về <br><span>Nhóm</span></h2>
+                        <p
+                            class="text-gray-400 text-lg mt-6 font-light leading-relaxed border-l-2 border-white/10 pl-6">
+                            Chúng tôi là <span class="text-white">Mỉm Cười Vì Điểm 10</span>. Một nhóm bạn trẻ nhiệt
+                            huyết đến từ lớp <span class="text-white">25C01</span>, khao khát kể những câu chuyện chân
+                            thật nhất qua lăng kính nghệ thuật.
+                        </p>
+                    </div>
+
+                    <!-- Feature Grid -->
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Vision -->
+                        <div
+                            class="feature-card p-6 bg-white/5 border border-white/5 hover:border-[#f47a4b]/30 transition-all duration-300 rounded-sm group hover:bg-white/[0.07]">
+                            <div
+                                class="text-[#f47a4b] text-3xl mb-4 transform group-hover:scale-110 transition-transform">
+                                <i class="ti ti-telescope"></i>
+                            </div>
+                            <h4 class="text-white text-lg font-serif mb-2">Tầm Nhìn</h4>
+                            <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">Kiến tạo những
+                                giấc mơ điện ảnh độc lập mang đậm dấu ấn cá nhân.</p>
                         </div>
-                        <div class="card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="card-icon"><i class="ti ti-target-arrow"></i></div>
-                            <h3>Sứ Mệnh</h3>
-                            <p>Kể những câu chuyện chưa từng được kể. Chạm sâu vào tâm hồn người xem và khơi dậy niềm
-                                tin vào những điều tốt đẹp.</p>
+
+                        <!-- Mission -->
+                        <div
+                            class="feature-card p-6 bg-white/5 border border-white/5 hover:border-[#f47a4b]/30 transition-all duration-300 rounded-sm group hover:bg-white/[0.07]">
+                            <div
+                                class="text-[#f47a4b] text-3xl mb-4 transform group-hover:scale-110 transition-transform">
+                                <i class="ti ti-target-arrow"></i>
+                            </div>
+                            <h4 class="text-white text-lg font-serif mb-2">Sứ Mệnh</h4>
+                            <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">Kể những câu
+                                chuyện chưa từng được kể, chạm sâu vào tâm hồn người xem.</p>
                         </div>
-                        <div class="card md:col-span-2" data-aos="fade-up" data-aos-delay="300">
-                            <div class="card-icon"><i class="ti ti-diamond"></i></div>
-                            <h3>Giá Trị Cốt Lõi</h3>
-                            <p>Đam mê là ngọn lửa. Sáng tạo là con đường. Và sự tử tế chính là nền tảng vững chắc nhất
-                                cho mọi thành công của chúng tôi.</p>
+
+                        <!-- Core Values -->
+                        <div
+                            class="feature-card sm:col-span-2 p-6 bg-white/5 border border-white/5 hover:border-[#f47a4b]/30 transition-all duration-300 rounded-sm flex flex-col sm:flex-row gap-6 items-start group hover:bg-white/[0.07]">
+                            <div
+                                class="text-[#f47a4b] text-3xl transform group-hover:scale-110 transition-transform shrink-0">
+                                <i class="ti ti-diamond"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-lg font-serif mb-2">Giá Trị Cốt Lõi</h4>
+                                <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">Đam mê là
+                                    ngọn lửa. Sáng tạo là con đường. Và sự tử tế chính là nền tảng vững chắc nhất cho
+                                    mọi thành công.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -406,40 +453,76 @@
     <!-- Memories Section -->
     <section id="memories">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
-                <div class="section-header mb-0">
-                    <h2 class="section-title">Khoảnh <span>Khắc</span></h2>
-                    <p class="text-gray-400 mt-2">Những khoảnh khắc đáng nhớ sau ống kính</p>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="section-title">Khoảnh <span>Khắc</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff9b70] to-transparent mx-auto mt-6 mb-4">
                 </div>
-
-                <div class="flex gap-2 mt-8 md:mt-0" id="memories-filters">
-                    <!-- Filters injected by JS -->
-                </div>
+                <p class="text-gray-400 font-light italic">"Mỗi bức ảnh là một trang nhật ký, lưu giữ những cảm xúc chân
+                    thật nhất"</p>
             </div>
 
-            <div id="memories-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Grid injected by JS -->
+            <!-- Diary Book Stage -->
+            <div class="diary-stage" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="diary-book-wrapper" id="diary-book-wrapper">
+                    <!-- Book Cover (Closed State) -->
+                    <div class="book-cover" id="book-cover" onclick="book.openBook()">
+                        <div class="book-cover-spine"></div>
+                        <div class="book-cover-front">
+                            <div class="book-cover-texture"></div>
+                            <div class="book-cover-content">
+                                <div class="book-cover-ornament top"></div>
+                                <h3 class="book-cover-title">Khoảnh Khắc</h3>
+                                <p class="book-cover-subtitle">Nhóm Mỉm Cười Vì Điểm 10</p>
+                                <div class="book-cover-ornament bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Content (Open State - Hidden Initially) -->
+                    <div class="diary-book hidden" id="diary-book">
+                        <!-- Static Base Pages -->
+                        <div class="diary-page left" id="static-left">
+                            <!-- Content injected by JS -->
+                        </div>
+                        <div class="diary-page right" id="static-right">
+                            <!-- Content injected by JS -->
+                        </div>
+
+                        <!-- Flipper Container -->
+                        <div id="flipper-container"></div>
+                    </div>
+                </div>
+
+                <!-- Controls (Hidden when book is closed) -->
+                <div class="diary-controls hidden" id="diary-controls">
+                    <button id="diary-close" class="diary-btn diary-btn-close" onclick="book.closeBook()" title="Đóng sách">
+                        <i class="ti ti-x"></i>
+                    </button>
+                    <button id="diary-prev" class="diary-btn" onclick="book.prevManual()" title="Trang trước">
+                        <i class="ti ti-chevron-left"></i>
+                    </button>
+                    <div class="page-number" id="diary-page-num">01 / 12</div>
+                    <button id="diary-next" class="diary-btn" onclick="book.nextManual()" title="Trang tiếp">
+                        <i class="ti ti-chevron-right"></i>
+                    </button>
+                    <button id="diary-autoplay" class="diary-btn diary-btn-autoplay" onclick="book.toggleAutoPlay()" title="Dừng tự động lật">
+                        <i class="ti ti-player-pause"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Lightbox -->
+        <!-- Lightbox (Retained for viewing details) -->
         <div id="memories-lightbox" class="fixed inset-0 hidden items-center justify-center z-[100]">
             <div id="memories-lightbox-backdrop" class="absolute inset-0 bg-black/95 backdrop-blur-md"></div>
             <div id="memories-lightbox-content" class="relative max-w-6xl w-full p-4 z-10 flex flex-col items-center">
                 <button id="memories-lightbox-close"
-                    class="absolute top-4 right-4 text-white/50 hover:text-white text-3xl transition-colors">
+                    class="absolute top-4 right-4 text-white/50 hover:text-white text-3xl transition-colors z-50">
                     <i class="ti ti-x"></i>
                 </button>
-
-                <div class="w-full h-[80vh] flex items-center justify-center">
-                    <img id="memories-lightbox-img" class="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
-                        style="display:none;">
-                    <video id="memories-lightbox-video" class="max-w-full max-h-full shadow-2xl rounded-sm" controls
-                        style="display:none;">
-                        <source id="memories-lightbox-video-src" src="" type="video/mp4">
-                    </video>
+                <div class="w-full h-[80vh] flex items-center justify-center" id="lightbox-media-container">
+                    <!-- Media inserted here -->
                 </div>
-
                 <p id="memories-lightbox-cap" class="text-center text-[#ff9b70] mt-6 font-serif italic text-xl"></p>
             </div>
         </div>
@@ -530,15 +613,7 @@
             }
         });
 
-        // Memories Logic
-        const memGrid = document.getElementById('memories-grid');
-        const memFilters = document.getElementById('memories-filters');
-        const lightbox = document.getElementById('memories-lightbox');
-        const lbImg = document.getElementById('memories-lightbox-img');
-        const lbVid = document.getElementById('memories-lightbox-video');
-        const lbVidSrc = document.getElementById('memories-lightbox-video-src');
-        const lbCap = document.getElementById('memories-lightbox-cap');
-
+        // Memories / Diary Book Logic
         const media = [
             // Videos
             { type: 'video', src: 'public/assets/images/memories/Others/bts_1.MOV', label: 'Behind The Scene' },
@@ -564,84 +639,343 @@
             { type: 'image', src: 'public/assets/images/memories/Others/teamwork.jpg', label: 'Teamwork' }
         ];
 
-        let currentFilter = 'all';
+        class DiaryBook {
+            constructor() {
+                this.currentIndex = 0; // Index of the item on the LEFT page
+                this.isAnimating = false;
+                this.isOpen = false;
+                this.isAutoPlaying = false;
+                this.autoPlayInterval = null;
+                this.autoPlayDelay = 5000; // 5 seconds per page
+                this.items = media;
 
-        function renderMemories(filter) {
-            currentFilter = filter;
-            renderFilters();
+                // Audio
+                this.audio = new Audio('public/assets/audio/phepmau.mp3');
+                this.audio.loop = true;
+                this.audio.volume = 0.5;
 
-            memGrid.innerHTML = media.map((item, i) => {
-                if (filter !== 'all' && item.label !== filter) return '';
+                // Elements
+                this.bookCover = document.getElementById('book-cover');
+                this.diaryBook = document.getElementById('diary-book');
+                this.controls = document.getElementById('diary-controls');
+                this.staticLeft = document.getElementById('static-left');
+                this.staticRight = document.getElementById('static-right');
+                this.flipperContainer = document.getElementById('flipper-container');
+                this.pageNum = document.getElementById('diary-page-num');
+                this.btnPrev = document.getElementById('diary-prev');
+                this.btnNext = document.getElementById('diary-next');
+                this.btnAutoPlay = document.getElementById('diary-autoplay');
 
-                let content = '';
-                if (item.type === 'image') {
-                    content = `<img src="${item.src}" alt="${item.label}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">`;
+                // Init
+                this.init();
+            }
+
+            init() {
+                if (!this.staticLeft) return; // Guard
+                this.renderStatic();
+                this.updateControls();
+                this.initSwipe();
+
+                // Keyboard Nav
+                document.addEventListener('keydown', (e) => {
+                    if (!this.isOpen) {
+                        if (e.key === 'Enter' || e.key === ' ') this.openBook();
+                        return;
+                    }
+                    if (e.key === 'ArrowRight') this.next();
+                    if (e.key === 'ArrowLeft') this.prev();
+                    if (e.key === 'Escape') this.closeBook();
+                });
+            }
+
+            openBook() {
+                if (this.isOpen) return;
+                this.isOpen = true;
+                this.bookCover.classList.add('opening');
+
+                // Play audio
+                this.audio.currentTime = 0;
+                this.audio.play().catch(() => {
+                    // Auto-play blocked, will play on user interaction
+                    console.log('Audio autoplay blocked');
+                });
+
+                setTimeout(() => {
+                    this.bookCover.classList.add('hidden');
+                    this.bookCover.classList.remove('opening');
+                    this.diaryBook.classList.remove('hidden');
+                    this.controls.classList.remove('hidden');
+                    // Start auto-play tour
+                    this.startAutoPlay();
+                }, 600);
+            }
+
+            closeBook() {
+                if (!this.isOpen) return;
+                this.isOpen = false;
+                this.stopAutoPlay();
+                this.audio.pause();
+                this.audio.currentTime = 0;
+                this.diaryBook.classList.add('hidden');
+                this.controls.classList.add('hidden');
+                this.bookCover.classList.remove('hidden');
+                this.currentIndex = 0;
+                this.renderStatic();
+                this.updateControls();
+            }
+
+            startAutoPlay() {
+                if (this.isAutoPlaying) return;
+                this.isAutoPlaying = true;
+                this.updateAutoPlayButton();
+
+                this.autoPlayInterval = setInterval(() => {
+                    if (this.currentIndex >= this.items.length - 2) {
+                        // Reached the end, loop back to beginning
+                        this.currentIndex = 0;
+                        this.renderStatic();
+                        this.updateControls();
+                    } else {
+                        this.next();
+                    }
+                }, this.autoPlayDelay);
+            }
+
+            stopAutoPlay() {
+                if (!this.isAutoPlaying) return;
+                this.isAutoPlaying = false;
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+                this.updateAutoPlayButton();
+            }
+
+            toggleAutoPlay() {
+                if (this.isAutoPlaying) {
+                    this.stopAutoPlay();
                 } else {
-                    content = `
-                        <video src="${item.src}" muted class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"></video>
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-[#ff9b70] group-hover:border-[#ff9b70] transition-all">
-                            <i class="ti ti-player-play-filled"></i>
-                        </div>
+                    this.startAutoPlay();
+                }
+            }
+
+            updateAutoPlayButton() {
+                if (!this.btnAutoPlay) return;
+                if (this.isAutoPlaying) {
+                    this.btnAutoPlay.innerHTML = '<i class="ti ti-player-pause"></i>';
+                    this.btnAutoPlay.title = 'Dừng tự động lật';
+                } else {
+                    this.btnAutoPlay.innerHTML = '<i class="ti ti-player-play"></i>';
+                    this.btnAutoPlay.title = 'Tự động lật trang';
+                }
+            }
+
+            getItem(index) {
+                if (index < 0 || index >= this.items.length) return null;
+                return this.items[index];
+            }
+
+            renderPageContent(item, isLeft) {
+                if (!item) return '<div class="page-inner"></div>'; // Empty page
+
+                let mediaHtml = '';
+                // Simple check for video extension if type not explicit, but allow explicit type
+                const isVideo = item.type === 'video';
+
+                if (!isVideo) {
+                    mediaHtml = `<img src="${item.src}" class="page-media" loading="lazy" alt="${item.label}">`;
+                } else {
+                    // Try to generate a poster path if possible, or just load video
+                    mediaHtml = `
+                        <video src="${item.src}#t=1.0" class="page-media" preload="metadata"></video>
+                        <div class="video-play-btn"><i class="ti ti-player-play-filled"></i></div>
                     `;
                 }
 
+                // Escape simple quotes for onclick
+                const safeSrc = item.src.replace(/'/g, "\\'");
+                const safeLabel = item.label.replace(/'/g, "\\'");
+
                 return `
-                    <div class="memory-item relative aspect-square bg-gray-900 overflow-hidden group cursor-pointer rounded-sm" onclick="openLightbox(${i})" data-aos="fade-up" data-aos-delay="${i * 50}">
-                        ${content}
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                            <span class="text-white text-xs uppercase tracking-wider font-medium">${item.label}</span>
+                    <div class="page-inner">
+                        <div class="tape-strip"></div>
+                        <div class="page-content-wrapper" onclick="openLightbox('${safeSrc}', '${item.type}', '${safeLabel}')" style="cursor: pointer;">
+                            <div class="page-media-container">
+                                ${mediaHtml}
+                            </div>
+                            <div class="page-caption">${item.label}</div>
                         </div>
                     </div>
                 `;
-            }).join('');
+            }
+
+            renderStatic() {
+                // Left page shows currentIndex
+                // Right page shows currentIndex + 1
+                this.staticLeft.innerHTML = this.renderPageContent(this.getItem(this.currentIndex), true);
+                this.staticRight.innerHTML = this.renderPageContent(this.getItem(this.currentIndex + 1), false);
+            }
+
+            updateControls() {
+                // Determine total 'spreads'
+                const totalSpreads = Math.ceil(this.items.length / 2);
+                const currentSpread = Math.floor(this.currentIndex / 2) + 1;
+
+                this.pageNum.innerText = `${String(currentSpread).padStart(2, '0')} / ${String(totalSpreads).padStart(2, '0')}`;
+
+                this.btnPrev.disabled = this.currentIndex <= 0;
+                this.btnNext.disabled = this.currentIndex >= this.items.length - 2;
+
+                // Sync button opacity
+                this.btnPrev.style.opacity = this.btnPrev.disabled ? '0.3' : '1';
+                this.btnNext.style.opacity = this.btnNext.disabled ? '0.3' : '1';
+            }
+
+            next() {
+                if (this.isAnimating || this.currentIndex >= this.items.length - 2) return;
+                this.flip('next');
+            }
+
+            prev() {
+                if (this.isAnimating || this.currentIndex <= 0) return;
+                this.flip('prev');
+            }
+
+            // Manual navigation stops auto-play
+            nextManual() {
+                this.stopAutoPlay();
+                this.next();
+            }
+
+            prevManual() {
+                this.stopAutoPlay();
+                this.prev();
+            }
+
+            flip(dir) {
+                this.isAnimating = true;
+
+                // Create Flipper
+                const flipper = document.createElement('div');
+                flipper.className = 'page-flipper';
+
+                const front = document.createElement('div');
+                front.className = 'flipper-face front';
+
+                const back = document.createElement('div');
+                back.className = 'flipper-face back';
+
+                flipper.appendChild(front);
+                flipper.appendChild(back);
+                this.flipperContainer.appendChild(flipper);
+
+                if (dir === 'next') {
+                    // Start: Flipper covers Right Page. Front=Current Right.
+                    // End: Flipper is on Left. Back=Next Left.
+                    front.innerHTML = this.renderPageContent(this.getItem(this.currentIndex + 1), false);
+                    back.innerHTML = this.renderPageContent(this.getItem(this.currentIndex + 2), true);
+
+                    // The static Right page temporarily shows the *next* right content (i+3)
+                    // so when flipper moves, we see it.
+                    this.staticRight.innerHTML = this.renderPageContent(this.getItem(this.currentIndex + 3), false);
+
+                    // Force Layout
+                    flipper.getBoundingClientRect();
+
+                    // Animate
+                    flipper.style.transform = 'rotateY(-180deg)';
+
+                    setTimeout(() => {
+                        this.currentIndex += 2;
+                        this.renderStatic();
+                        flipper.remove();
+                        this.isAnimating = false;
+                        this.updateControls();
+                    }, 600); // 0.6s match CSS
+
+                } else {
+                    // Start: Flipper starts at -180 (Left). Back=Current Left.
+                    // End: Flipper at 0 (Right). Front=Prev Right.
+                    back.innerHTML = this.renderPageContent(this.getItem(this.currentIndex), true);
+                    front.innerHTML = this.renderPageContent(this.getItem(this.currentIndex - 1), false);
+
+                    // Underlying Left Page shows Prev Left (i-2)
+                    this.staticLeft.innerHTML = this.renderPageContent(this.getItem(this.currentIndex - 2), true);
+
+                    // Init State
+                    flipper.style.transform = 'rotateY(-180deg)';
+                    flipper.getBoundingClientRect();
+
+                    // Animate
+                    requestAnimationFrame(() => {
+                        flipper.style.transform = 'rotateY(0deg)';
+                    });
+
+                    setTimeout(() => {
+                        this.currentIndex -= 2;
+                        this.renderStatic();
+                        flipper.remove();
+                        this.isAnimating = false;
+                        this.updateControls();
+                    }, 600);
+                }
+            }
+
+            initSwipe() {
+                let touchStartX = 0;
+                const el = document.getElementById('diary-book');
+                if (!el) return;
+
+                el.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                el.addEventListener('touchend', e => {
+                    const touchEndX = e.changedTouches[0].screenX;
+                    if (touchStartX - touchEndX > 50) this.next();
+                    if (touchEndX - touchStartX > 50) this.prev();
+                }, { passive: true });
+            }
         }
 
-        function renderFilters() {
-            // Get unique labels
-            const labels = [...new Set(media.map(item => item.label))];
+        // Initialize Book
+        const book = new DiaryBook();
 
-            const filters = [
-                { id: 'all', label: 'Tất Cả' },
-                ...labels.map(l => ({ id: l, label: l }))
-            ];
+        // Lightbox Logic
+        const lightbox = document.getElementById('memories-lightbox');
+        const lbContainer = document.getElementById('lightbox-media-container');
+        const lbCap = document.getElementById('memories-lightbox-cap');
 
-            memFilters.innerHTML = filters.map(f => `
-                <button onclick="renderMemories('${f.id}')" 
-                    class="px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${currentFilter === f.id ? 'bg-[#f47a4b] border-[#f47a4b] text-white' : 'bg-transparent border-white/10 text-gray-400 hover:border-white hover:text-white'}">
-                    ${f.label}
-                </button>
-            `).join('');
-        }
-
-        window.openLightbox = (index) => {
-            const item = media[index];
+        window.openLightbox = (src, type, label) => {
             lightbox.classList.remove('hidden');
             lightbox.classList.add('flex');
-            lbCap.textContent = item.label;
+            lbCap.textContent = label;
 
-            if (item.type === 'image') {
-                lbImg.src = item.src;
-                lbImg.style.display = 'block';
-                lbVid.style.display = 'none';
+            lbContainer.innerHTML = '';
+
+            if (type === 'image') {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'max-w-full max-h-full object-contain shadow-2xl rounded-sm';
+                lbContainer.appendChild(img);
             } else {
-                lbVidSrc.src = item.src;
-                lbVid.load();
-                lbVid.style.display = 'block';
-                lbImg.style.display = 'none';
-                lbVid.play();
+                const vid = document.createElement('video');
+                vid.src = src;
+                vid.controls = true;
+                vid.autoplay = true;
+                vid.className = 'max-w-full max-h-full shadow-2xl rounded-sm';
+                lbContainer.appendChild(vid);
             }
         };
 
-        function closeLightbox() {
+        document.getElementById('memories-lightbox-close').onclick = () => {
             lightbox.classList.add('hidden');
             lightbox.classList.remove('flex');
-            lbVid.pause();
-        }
-
-        document.getElementById('memories-lightbox-close').onclick = closeLightbox;
-        document.getElementById('memories-lightbox-backdrop').onclick = closeLightbox;
-
-        renderMemories('all');
+            // Stop video if any
+            const v = lbContainer.querySelector('video');
+            if (v) v.pause();
+        };
+        document.getElementById('memories-lightbox-backdrop').onclick = document.getElementById('memories-lightbox-close').onclick;
 
         // Contact Modal Logic
         const contactModal = document.getElementById('contact-modal');
