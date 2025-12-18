@@ -48,6 +48,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="public/assets/css/styles.css">
+    <link rel="stylesheet" href="public/assets/css/poster-effects.css">
 </head>
 
 <body>
@@ -110,11 +111,14 @@
                 </div>
             </div>
 
-            <!-- Right Content - Poster (Three.js) -->
-            <div class="poster-wrapper flex justify-center items-center h-full" data-aos="fade-left"
-                data-aos-duration="1200" data-aos-delay="200">
-                <div id="poster-3d-container"
-                    class="w-full h-[600px] relative z-20 outline-none cursor-grab active:cursor-grabbing"></div>
+            <!-- Right Content - Poster -->
+            <div class="poster-wrapper" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                <div class="poster-spotlight"></div>
+                <div class="poster-backdrop-shadow"></div>
+                <img src="public/assets/images/illustrators/poster_dark.png" alt="Poster Phim 1% Hy Vọng"
+                    class="poster-img">
+                <!-- Reflection effect -->
+                <div class="poster-reflection"></div>
             </div>
         </div>
     </section>
@@ -997,9 +1001,6 @@
         contactBackdrop.addEventListener('click', closeContact);
 
     </script>
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="public/assets/js/poster-3d.js"></script>
 </body>
 
 </html>

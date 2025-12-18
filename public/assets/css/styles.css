@@ -194,33 +194,20 @@ nav a.active {
     }
 }
 
-.poster-card {
+.poster-img {
     width: 100%;
     max-width: 400px;
-    position: relative;
     border-radius: 2px;
     box-shadow: -30px 30px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05);
     transform: rotateY(-25deg) rotateX(10deg) rotateZ(-2deg) scale(0.9);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    transform-style: preserve-3d;
-}
-
-.poster-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 2px;
     filter: brightness(0.8) contrast(1.2) sepia(0.2);
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.poster-wrapper:hover .poster-card {
-    transform: rotateY(0) rotateX(0) rotateZ(0) scale(1);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95), 0 0 40px var(--accent-glow);
 }
 
 .poster-wrapper:hover .poster-img {
+    transform: rotateY(0) rotateX(0) rotateZ(0) scale(1);
     filter: brightness(1) contrast(1.1) sepia(0);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95), 0 0 40px var(--accent-glow);
 }
 
 .poster-reflection {
