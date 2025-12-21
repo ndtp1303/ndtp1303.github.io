@@ -59,9 +59,9 @@
         <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3 group">
                 <img src="public/assets/images/logo.png" alt="Logo"
-                    class="w-10 h-10 rounded object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    class="w-10 h-10 rounded object-cover grayscale-0 transition-all duration-500">
                 <img src="public/assets/images/title1.png" alt="1% Hy Vọng"
-                    class="h-20 object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300">
+                    class="h-20 object-contain brightness-0 group-hover:opacity-80 transition-all duration-300">
             </a>
             <div class="hidden md:flex gap-10">
                 <a href="#team">Đội Ngũ</a>
@@ -71,7 +71,7 @@
                 <a href="#memories">Kí Ức</a>
             </div>
             <!-- Mobile Menu Button (Optional) -->
-            <button class="md:hidden text-white text-2xl">
+            <button class="md:hidden text-gray-800 text-2xl">
                 <i class="ti ti-menu-2"></i>
             </button>
         </div>
@@ -91,7 +91,7 @@
 
                 <h1 class="hero-title" style="margin-bottom: -50px;">
                     <img src="public/assets/images/title1.png" alt="1% Hy Vọng"
-                        class="max-w-full h-auto md:max-w-lg brightness-0 invert">
+                        class="max-w-full h-auto md:max-w-lg brightness-0"> <!-- Black text logo -->
                 </h1>
                 <p class="hero-subtitle">"Dám thử, cơ hội không còn là 0"</p>
 
@@ -115,6 +115,7 @@
             <div class="poster-wrapper" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                 <div class="poster-spotlight"></div>
                 <div class="poster-backdrop-shadow"></div>
+                <!-- Assuming poster_dark exists, maybe use it but filter it in CSS, or if there's a light one? Using same image. -->
                 <img src="public/assets/images/illustrators/poster_dark.png" alt="Poster Phim 1% Hy Vọng"
                     class="poster-img">
                 <!-- Reflection effect -->
@@ -125,10 +126,6 @@
 
     <!-- Team Section -->
     <section id="team" class="relative overflow-hidden">
-        <!-- Subtle decorative background element -->
-        <div
-            class="absolute top-1/2 left-0 w-full h-full bg-gradient-to-r from-orange-900/5 to-transparent -z-10 transform -translate-y-1/2">
-        </div>
 
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -140,12 +137,12 @@
                     <div class="relative z-10">
                         <img src="public/assets/images/illustrators/poster_dark.png" alt="Poster Phim"
                             class="w-full max-w-md mx-auto shadow-2xl skew-y-1 transition-all duration-700 group-hover:skew-y-0 group-hover:scale-[1.02]"
-                            style="box-shadow: -20px 20px 60px rgba(0,0,0,0.5);">
+                            style="box-shadow: -20px 20px 60px rgba(0,0,0,0.1);">
 
                         <!-- Floating quote badge -->
                         <div
-                            class="absolute -bottom-6 -right-6 md:right-10 bg-[#1a1a1a]/90 backdrop-blur-md p-6 border-l-4 border-[#f47a4b] shadow-2xl max-w-xs floating-badge hidden md:block">
-                            <p class="text-gray-300 italic font-serif text-sm">"Thật ra nỗi sợ cũng không đáng sợ lắm.
+                            class="absolute -bottom-6 -right-6 md:right-10 bg-white/95 backdrop-blur-md p-6 border-l-4 border-[#f47a4b] shadow-xl max-w-xs floating-badge hidden md:block">
+                            <p class="text-gray-600 italic font-serif text-sm">"Thật ra nỗi sợ cũng không đáng sợ lắm.
                                 Nó chỉ là một phần của hành trình. Và mình không đi một mình."</p>
                         </div>
                     </div>
@@ -156,9 +153,11 @@
                     <div class="section-header mb-0">
                         <h2 class="section-title">Về <br><span>Nhóm</span></h2>
                         <p
-                            class="text-gray-400 text-lg mt-6 font-light leading-relaxed border-l-2 border-white/10 pl-6">
-                            Chúng tôi là <span class="text-white">Mỉm Cười Vì Điểm 10</span>. Một nhóm bạn trẻ nhiệt
-                            huyết đến từ lớp <span class="text-white">25C01</span>, khao khát kể những câu chuyện chân
+                            class="text-gray-600 text-lg mt-6 font-light leading-relaxed border-l-2 border-orange-500 pl-6">
+                            Chúng tôi là <span class="text-gray-900 font-semibold">Mỉm Cười Vì Điểm 10</span>. Một nhóm
+                            bạn trẻ nhiệt
+                            huyết đến từ lớp <span class="text-gray-900 font-semibold">25C01</span>, khao khát kể những
+                            câu chuyện chân
                             thật nhất qua lăng kính nghệ thuật.
                         </p>
                     </div>
@@ -166,39 +165,37 @@
                     <!-- Feature Grid -->
                     <div class="grid sm:grid-cols-2 gap-6">
                         <!-- Vision -->
-                        <div
-                            class="feature-card p-6 bg-white/5 border border-white/5 hover:border-[#f47a4b]/30 transition-all duration-300 rounded-sm group hover:bg-white/[0.07]">
+                        <div class="feature-card p-6 rounded-sm group">
                             <div
                                 class="text-[#f47a4b] text-3xl mb-4 transform group-hover:scale-110 transition-transform">
                                 <i class="ti ti-telescope"></i>
                             </div>
-                            <h4 class="text-white text-lg font-serif mb-2">Tầm Nhìn</h4>
-                            <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">Kiến tạo những
+                            <h4 class="text-gray-900 text-lg font-serif mb-2 font-bold">Tầm Nhìn</h4>
+                            <p class="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Kiến tạo những
                                 giấc mơ điện ảnh độc lập mang đậm dấu ấn cá nhân.</p>
                         </div>
 
                         <!-- Mission -->
-                        <div
-                            class="feature-card p-6 bg-white/5 border border-white/5 hover:border-[#f47a4b]/30 transition-all duration-300 rounded-sm group hover:bg-white/[0.07]">
+                        <div class="feature-card p-6 rounded-sm group">
                             <div
                                 class="text-[#f47a4b] text-3xl mb-4 transform group-hover:scale-110 transition-transform">
                                 <i class="ti ti-target-arrow"></i>
                             </div>
-                            <h4 class="text-white text-lg font-serif mb-2">Sứ Mệnh</h4>
-                            <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">Kể những câu
+                            <h4 class="text-gray-900 text-lg font-serif mb-2 font-bold">Sứ Mệnh</h4>
+                            <p class="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Kể những câu
                                 chuyện chưa từng được kể, chạm sâu vào tâm hồn người xem.</p>
                         </div>
 
                         <!-- Core Values -->
                         <div
-                            class="feature-card sm:col-span-2 p-6 bg-white/5 border border-white/5 hover:border-[#f47a4b]/30 transition-all duration-300 rounded-sm flex flex-col sm:flex-row gap-6 items-start group hover:bg-white/[0.07]">
+                            class="feature-card sm:col-span-2 p-6 rounded-sm flex flex-col sm:flex-row gap-6 items-start group">
                             <div
                                 class="text-[#f47a4b] text-3xl transform group-hover:scale-110 transition-transform shrink-0">
                                 <i class="ti ti-diamond"></i>
                             </div>
                             <div>
-                                <h4 class="text-white text-lg font-serif mb-2">Giá Trị Cốt Lõi</h4>
-                                <p class="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">Đam mê là
+                                <h4 class="text-gray-900 text-lg font-serif mb-2 font-bold">Giá Trị Cốt Lõi</h4>
+                                <p class="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">Đam mê là
                                     ngọn lửa. Sáng tạo là con đường. Và sự tử tế chính là nền tảng vững chắc nhất cho
                                     mọi thành công.</p>
                             </div>
@@ -215,16 +212,16 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-16" data-aos="fade-up">
                 <div>
                     <h2 class="section-title">Diễn Viên & <span>Ekip</span></h2>
-                    <p class="text-gray-400">Những mảnh ghép tạo nên bức tranh hoàn chỉnh</p>
+                    <p class="text-gray-600">Những mảnh ghép tạo nên bức tranh hoàn chỉnh</p>
                 </div>
-                <div class="hidden md:block w-32 h-[1px] bg-white/20 mb-4"></div>
+                <div class="hidden md:block w-32 h-[1px] bg-gray-300 mb-4"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Member 1 -->
                 <a href="profile/hienanh.html">
                     <div class="member-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="public/assets/images/avatars/hienanh.jpg" alt="Hien Anh" class="member-img"
+                        <img src="public/assets/images/avatars/hienanh.DNG" alt="Hien Anh" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=HA&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
                             <div class="member-info">
@@ -238,7 +235,7 @@
                 <!-- Member 2 -->
                 <a href="profile/an.html">
                     <div class="member-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="public/assets/images/avatars/an.jpg" alt="Nhat An" class="member-img"
+                        <img src="public/assets/images/avatars/an.jpeg" alt="Nhat An" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=NA&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
                             <div class="member-info">
@@ -252,7 +249,7 @@
                 <!-- Member 3 -->
                 <a href="profile/khai.html">
                     <div class="member-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="public/assets/images/avatars/khai.jpg" alt="Minh Khai" class="member-img"
+                        <img src="public/assets/images/avatars/khai.DNG" alt="Minh Khai" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=MK&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
                             <div class="member-info">
@@ -280,7 +277,7 @@
                 <!-- Member 5 -->
                 <a href="profile/hung.html">
                     <div class="member-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="public/assets/images/avatars/hung.jpg" alt="Gia Hung" class="member-img"
+                        <img src="public/assets/images/avatars/hung.DNG" alt="Gia Hung" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=GH&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
                             <div class="member-info">
@@ -294,8 +291,7 @@
                 <!-- Member 6 -->
                 <a href="profile/phat.html">
                     <div class="member-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://nmcntt.ndtp.io.vn/cdn/shop/files/IMG_8596.jpg?v=1763794829&width=600"
-                            alt="Thuan Phat" class="member-img"
+                        <img src="public/assets/images/avatars/phat.DNG" alt="Thuan Phat" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=TP&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
                             <div class="member-info">
@@ -309,7 +305,7 @@
                 <!-- Member 7 -->
                 <a href="profile/phuc.html">
                     <div class="member-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="public/assets/images/avatars/phuc.jpg" alt="Tan Phuc" class="member-img"
+                        <img src="public/assets/images/avatars/phuc.DNG" alt="Tan Phuc" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=TP&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
                             <div class="member-info">
@@ -326,7 +322,7 @@
                         <img src="public/assets/images/avatars/phu.jpg" alt="Tan Phu" class="member-img"
                             onerror="this.src='https://ui-avatars.com/api/?name=TP&background=random&color=fff&background=f97316'">
                         <div class="member-overlay">
-                            <div class="member-info">`
+                            <div class="member-info">
                                 <h3 class="member-name">Tấn Phú</h3>
                                 <p class="member-role">Screenwriter</p>
                             </div>
@@ -344,17 +340,17 @@
                 <div data-aos="fade-right">
                     <div class="section-header">
                         <h2 class="section-title">Quy Tắc <br><span>Làm Việc</span></h2>
-                        <p class="text-gray-400 mt-6 leading-relaxed">
+                        <p class="text-gray-600 mt-6 leading-relaxed">
                             Để đảm bảo chất lượng dự án, chúng tôi tuân thủ nghiêm ngặt các nguyên tắc làm việc chuyên
                             nghiệp. Sự kỷ luật tạo nên sự tự do trong sáng tạo.
                         </p>
                     </div>
 
-                    <div class="bg-white/5 p-8 rounded-lg border border-white/10 mt-8 backdrop-blur-sm">
-                        <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <div class="bg-white p-8 rounded-lg border border-gray-200 mt-8 shadow-sm">
+                        <h4 class="text-xl font-bold mb-6 flex items-center gap-3 text-gray-900">
                             <i class="ti ti-signature text-[#ff9b70] text-2xl"></i> Cam Kết Thành Viên
                         </h4>
-                        <div class="grid grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-400 font-mono">
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-600 font-mono">
                             <div class="flex items-center gap-2"><i class="ti ti-check text-[#ff9b70]"></i> Hiền Anh
                             </div>
                             <div class="flex items-center gap-2"><i class="ti ti-check text-[#ff9b70]"></i> Nhất An
@@ -414,34 +410,34 @@
                 </div>
             </div>
 
-            <div class="prose prose-invert prose-xl mx-auto" data-aos="fade-up">
-                <p class="font-serif text-3xl italic text-gray-300 leading-relaxed mb-16">
+            <div class="prose prose-gray prose-xl mx-auto" data-aos="fade-up">
+                <p class="font-serif text-3xl italic text-gray-700 leading-relaxed mb-16">
                     "Thất bại là bạn đã hơn người khác rồi. Vì khi dám thử, tỉ lệ thành công là có. Còn không thử thì tỉ
                     lệ thành công là số <span class="text-[#ff9b70]">0 tròn trĩnh</span>."
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-8 text-left">
                     <div
-                        class="bg-white/5 p-8 rounded-lg border border-white/5 hover:border-[#ff9b70]/30 transition-all duration-300 hover:-translate-y-2">
+                        class="bg-white p-8 rounded-lg border border-gray-200 hover:border-[#ff9b70]/30 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-md">
                         <div class="text-4xl mb-6 text-[#ff9b70]"><i class="ti ti-movie"></i></div>
-                        <h4 class="text-xl font-bold mb-3 text-white font-serif">Hiện Thực</h4>
-                        <p class="text-sm text-gray-400 leading-relaxed">Phản ánh chân thực áp lực đồng trang lứa và sự
+                        <h4 class="text-xl font-bold mb-3 text-gray-900 font-serif">Hiện Thực</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Phản ánh chân thực áp lực đồng trang lứa và sự
                             kỳ vọng của xã
                             hội lên vai người trẻ.</p>
                     </div>
                     <div
-                        class="bg-white/5 p-8 rounded-lg border border-white/5 hover:border-[#ff9b70]/30 transition-all duration-300 hover:-translate-y-2">
+                        class="bg-white p-8 rounded-lg border border-gray-200 hover:border-[#ff9b70]/30 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-md">
                         <div class="text-4xl mb-6 text-[#ff9b70]"><i class="ti ti-sparkles"></i></div>
-                        <h4 class="text-xl font-bold mb-3 text-white font-serif">Hy Vọng</h4>
-                        <p class="text-sm text-gray-400 leading-relaxed">Dù chỉ còn 1% cơ hội, đó vẫn là lý do đủ lớn để
+                        <h4 class="text-xl font-bold mb-3 text-gray-900 font-serif">Hy Vọng</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Dù chỉ còn 1% cơ hội, đó vẫn là lý do đủ lớn để
                             chúng ta tiếp
                             tục cố gắng và không bỏ cuộc.</p>
                     </div>
                     <div
-                        class="bg-white/5 p-8 rounded-lg border border-white/5 hover:border-[#ff9b70]/30 transition-all duration-300 hover:-translate-y-2">
+                        class="bg-white p-8 rounded-lg border border-gray-200 hover:border-[#ff9b70]/30 transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-md">
                         <div class="text-4xl mb-6 text-[#ff9b70]"><i class="ti ti-music"></i></div>
-                        <h4 class="text-xl font-bold mb-3 text-white font-serif">Cảm Xúc</h4>
-                        <p class="text-sm text-gray-400 leading-relaxed">Hòa quyện giữa hình ảnh cinematic và âm nhạc
+                        <h4 class="text-xl font-bold mb-3 text-gray-900 font-serif">Cảm Xúc</h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">Hòa quyện giữa hình ảnh cinematic và âm nhạc
                             sâu lắng để chạm
                             đến trái tim khán giả.</p>
                     </div>
@@ -457,7 +453,7 @@
                 <h2 class="section-title">Khoảnh <span>Khắc</span></h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff9b70] to-transparent mx-auto mt-6 mb-4">
                 </div>
-                <p class="text-gray-400 font-light italic">"Mỗi bức ảnh là một trang nhật ký, lưu giữ những cảm xúc chân
+                <p class="text-gray-600 font-light italic">"Mỗi bức ảnh là một trang nhật ký, lưu giữ những cảm xúc chân
                     thật nhất"</p>
             </div>
 
@@ -474,6 +470,11 @@
                                 <h3 class="book-cover-title">Khoảnh Khắc</h3>
                                 <p class="book-cover-subtitle">Nhóm Mỉm Cười Vì Điểm 10</p>
                                 <div class="book-cover-ornament bottom"></div>
+                                <!-- Gợi ý click -->
+                                <div class="book-cover-hint">
+                                    <i class="ti ti-hand-click"></i>
+                                    <span>Nhấn để mở sách</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -537,7 +538,7 @@
                 <h2 class="section-title">Kênh <span>Truyền Thông</span></h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#ff9b70] to-transparent mx-auto mt-6">
                 </div>
-                <p class="text-gray-400 font-light italic mt-4">"Theo dõi hành trình của chúng tôi qua các nền tảng mạng
+                <p class="text-gray-600 font-light italic mt-4">"Theo dõi hành trình của chúng tôi qua các nền tảng mạng
                     xã hội"</p>
             </div>
 
@@ -546,20 +547,20 @@
                 <a href="https://www.youtube.com/watch?v=EQvsbW0K6Hs" target="_blank" class="group"
                     data-aos="fade-right" data-aos-delay="100">
                     <div
-                        class="h-full bg-[#121212] border border-white/10 rounded-lg p-8 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:-translate-y-2 group-hover:border-[#ff0000]/50 group-hover:shadow-[0_10px_40px_-10px_rgba(255,0,0,0.3)] relative overflow-hidden">
+                        class="h-full bg-white border border-gray-200 rounded-lg p-8 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:-translate-y-2 group-hover:border-[#ff0000]/50 group-hover:shadow-[0_10px_40px_-10px_rgba(255,0,0,0.1)] relative overflow-hidden">
                         <!-- Background Glow -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-br from-[#ff0000]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            class="absolute inset-0 bg-gradient-to-br from-[#ff0000]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         </div>
 
                         <div
-                            class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6 text-4xl text-gray-400 group-hover:text-[#ff0000] group-hover:bg-[#ff0000]/10 transition-all duration-300 relative z-10">
+                            class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-4xl text-gray-500 group-hover:text-[#ff0000] group-hover:bg-[#ff0000]/10 transition-all duration-300 relative z-10">
                             <i class="ti ti-brand-youtube-filled"></i>
                         </div>
                         <h3
-                            class="text-2xl font-serif text-white mb-2 group-hover:text-[#ff0000] transition-colors relative z-10">
+                            class="text-2xl font-serif text-gray-900 mb-2 group-hover:text-[#ff0000] transition-colors relative z-10">
                             YouTube</h3>
-                        <p class="text-gray-400 text-sm mb-6 relative z-10">Xem phim ngắn, behind the scenes và các
+                        <p class="text-gray-600 text-sm mb-6 relative z-10">Xem phim ngắn, behind the scenes và các
                             video
                             thú vị khác</p>
                         <span
@@ -573,20 +574,20 @@
                 <a href="https://www.tiktok.com/@mm.ci.v.im.10?_r=1&_t=ZS-92LW1BfzaGT" target="_blank" class="group"
                     data-aos="fade-left" data-aos-delay="200">
                     <div
-                        class="h-full bg-[#121212] border border-white/10 rounded-lg p-8 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:-translate-y-2 group-hover:border-[#00f2ea]/50 group-hover:shadow-[0_10px_40px_-10px_rgba(0,242,234,0.3)] relative overflow-hidden">
+                        class="h-full bg-white border border-gray-200 rounded-lg p-8 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:-translate-y-2 group-hover:border-[#00f2ea]/50 group-hover:shadow-[0_10px_40px_-10px_rgba(0,242,234,0.1)] relative overflow-hidden">
                         <!-- Background Glow (TikTok Colors) -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-br from-[#00f2ea]/10 via-transparent to-[#ff0050]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            class="absolute inset-0 bg-gradient-to-br from-[#00f2ea]/5 via-transparent to-[#ff0050]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         </div>
 
                         <div
-                            class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6 text-4xl text-gray-400 group-hover:text-white group-hover:bg-gradient-to-br from-[#00f2ea]/20 to-[#ff0050]/20 transition-all duration-300 relative z-10">
+                            class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-4xl text-gray-500 group-hover:text-gray-900 group-hover:bg-gradient-to-br from-[#00f2ea]/10 to-[#ff0050]/10 transition-all duration-300 relative z-10">
                             <i class="ti ti-brand-tiktok-filled"></i>
                         </div>
                         <h3
-                            class="text-2xl font-serif text-white mb-2 group-hover:text-[#00f2ea] transition-colors relative z-10">
+                            class="text-2xl font-serif text-gray-900 mb-2 group-hover:text-[#00f2ea] transition-colors relative z-10">
                             TikTok</h3>
-                        <p class="text-gray-400 text-sm mb-6 relative z-10">Những khoảnh khắc ngắn, vui nhộn và trending
+                        <p class="text-gray-600 text-sm mb-6 relative z-10">Những khoảnh khắc ngắn, vui nhộn và trending
                             của nhóm</p>
                         <span
                             class="inline-flex items-center gap-2 text-sm text-[#00f2ea] font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 relative z-10">
@@ -602,26 +603,27 @@
     <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="contact-backdrop"></div>
         <div
-            class="relative bg-[#121212] border border-white/10 rounded-sm p-8 max-w-md w-full mx-4 shadow-2xl animate__animated animate__fadeIn">
-            <button id="contact-close" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+            class="relative bg-white border border-gray-200 rounded-sm p-8 max-w-md w-full mx-4 shadow-2xl animate__animated animate__fadeIn">
+            <button id="contact-close"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors">
                 <i class="ti ti-x text-xl"></i>
             </button>
 
             <div class="text-center mb-6">
-                <h3 class="font-serif text-2xl text-white mb-2">Liên Hệ</h3>
-                <p class="text-gray-400 text-sm">Gửi tin nhắn cho nhóm chúng tôi</p>
+                <h3 class="font-serif text-2xl text-gray-900 mb-2">Liên Hệ</h3>
+                <p class="text-gray-500 text-sm">Gửi tin nhắn cho nhóm chúng tôi</p>
             </div>
 
             <form action="https://formspree.io/f/xvgelwrb" method="POST" class="space-y-4">
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Email của bạn</label>
                     <input type="email" name="email" required
-                        class="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white focus:border-[#ff9b70] focus:outline-none transition-colors text-sm">
+                        class="w-full bg-gray-50 border border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:border-[#ff9b70] focus:outline-none transition-colors text-sm">
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Lời nhắn</label>
                     <textarea name="message" rows="4" required
-                        class="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white focus:border-[#ff9b70] focus:outline-none transition-colors text-sm"></textarea>
+                        class="w-full bg-gray-50 border border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:border-[#ff9b70] focus:outline-none transition-colors text-sm"></textarea>
                 </div>
                 <button type="submit"
                     class="w-full bg-[#f47a4b] hover:bg-[#ff9b70] text-white font-bold py-3 rounded-sm transition-all uppercase tracking-widest text-sm hover:shadow-[0_0_20px_rgba(244,122,75,0.5)]">
@@ -636,13 +638,13 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <a href="#" class="inline-block mb-10">
                 <img src="public/assets/images/title1.png" alt="1% Hy Vọng"
-                    class="h-32 mx-auto object-contain brightness-0 invert">
+                    class="h-32 mx-auto object-contain brightness-0"> <!-- Black logo -->
             </a>
 
             <div class="flex justify-center gap-10 mb-12 text-xs uppercase tracking-[0.2em] text-gray-500 font-medium">
-                <a href="#team" class="hover:text-white transition-colors">Team</a>
-                <a href="#content" class="hover:text-white transition-colors">Story</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="#team" class="hover:text-gray-900 transition-colors">Team</a>
+                <a href="#content" class="hover:text-gray-900 transition-colors">Story</a>
+                <a href="#contact" class="hover:text-gray-900 transition-colors">Contact</a>
             </div>
 
             <p class="text-gray-600 text-xs tracking-wider">

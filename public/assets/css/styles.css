@@ -1,30 +1,35 @@
 :root {
-    /* Cinematic Dark Theme Palette */
-    --bg-main: #050505;
-    --bg-secondary: #0a0a0a;
-    --bg-card: #121212;
+    /* Cinematic Light Theme Palette - "High Contrast, Clean, Outstanding" */
+    --bg-main: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
 
-    --text-primary: #ededed;
-    --text-secondary: #a1a1aa;
+    --text-primary: #0f172a;
+    /* Slate 900 */
+    --text-secondary: #475569;
+    /* Slate 600 */
 
-    /* Refined Orange Accent - Burnt Orange/Amber */
-    --accent: #f47a4b;
-    --accent-light: #ff9b70;
-    --accent-glow: rgba(244, 122, 75, 0.3);
+    /* Vibrant Orange Accent - Adjusted for White BG */
+    --accent: #ea580c;
+    /* Orange 600 - darker for contrast on white */
+    --accent-light: #f97316;
+    /* Orange 500 */
+    --accent-glow: rgba(234, 88, 12, 0.15);
+    /* Soft orange shadow */
 
-    --border-color: rgba(255, 255, 255, 0.08);
-    --glass-bg: rgba(20, 20, 20, 0.6);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.9);
 }
 
 /* Base Styles */
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
     background-color: var(--bg-main);
-    background-image: linear-gradient(rgba(5, 5, 5, 0.4), rgba(5, 5, 5, 0.4)), url('../images/background.png');
-    background-size: cover;
-    background-position: center;
+    /* Subtle mesh gradient for "Outstanding" look without AI neon feel */
+    background-image:
+        radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(15, 23, 42, 0.03) 0px, transparent 50%);
     background-attachment: fixed;
-    background-repeat: no-repeat;
     color: var(--text-primary);
     line-height: 1.7;
     overflow-x: hidden;
@@ -38,11 +43,11 @@ h4,
 h5,
 h6 {
     font-family: 'Playfair Display', serif;
-    color: #fff;
+    color: var(--text-primary);
     letter-spacing: -0.01em;
 }
 
-/* Cinematic Grain Overlay */
+/* Grain Overlay - Made very subtle/white for texture */
 .grain-overlay {
     position: fixed;
     top: 0;
@@ -51,41 +56,43 @@ h6 {
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.035;
+    opacity: 0.4;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
+    mix-blend-mode: soft-light;
 }
 
 /* Navigation */
 nav {
-    background: rgba(5, 5, 5, 0.0);
+    background: rgba(255, 255, 255, 0.0);
     backdrop-filter: blur(0px);
     border-bottom: 1px solid transparent;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav.scrolled {
-    background: rgba(5, 5, 5, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
 }
 
 nav a {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-secondary);
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 nav a:hover,
 nav a.active {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    color: var(--accent);
+    text-shadow: none;
+    transform: translateY(-1px);
 }
 
-/* Hero Section - Redesigned */
+/* Hero Section */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -93,17 +100,15 @@ nav a.active {
     align-items: center;
     justify-content: center;
     padding-top: 80px;
-    /* Nav height */
     overflow: hidden;
-
-    /* Background Image Implementation */
+    /* We keep the banner but put a heavy white overlay on it */
     background-image: url('../images/banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Cinematic Overlay for Hero */
+/* White Overlay for Hero to make it Light Mode compatible */
 .hero::before {
     content: '';
     position: absolute;
@@ -111,54 +116,17 @@ nav a.active {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient to fade bottom into main background and darken image for text readability */
+    /* Strong white gradient from top to bottom */
     background: linear-gradient(to bottom,
-            rgba(5, 5, 5, 0.4) 0%,
-            rgba(5, 5, 5, 0.7) 50%,
-            var(--bg-main) 100%);
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(255, 255, 255, 0.95) 100%);
     z-index: 1;
 }
 
-/* Background Effects - Toned down for "No AI Look" */
-.hero-bg-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
-    /* Subtle radial gradient */
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, var(--bg-main) 80%);
-    z-index: 1;
-    opacity: 0.8;
-    pointer-events: none;
-}
-
+.hero-bg-glow,
 .hero-spotlight {
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    opacity: 0.2;
-    /* Reduced opacity */
-    filter: blur(80px);
-    z-index: 1;
-    animation: pulse-glow 8s infinite alternate;
-    pointer-events: none;
-}
-
-@keyframes pulse-glow {
-    0% {
-        opacity: 0.15;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0.25;
-        transform: scale(1.1);
-    }
+    display: none;
+    /* Clean look, remove complex glow */
 }
 
 .hero-container {
@@ -179,7 +147,7 @@ nav a.active {
     }
 }
 
-/* Poster Styling */
+/* Poster Styling - Cleaner Shadows */
 .poster-wrapper {
     position: relative;
     perspective: 1500px;
@@ -197,43 +165,28 @@ nav a.active {
 .poster-img {
     width: 100%;
     max-width: 400px;
-    border-radius: 2px;
-    box-shadow: -30px 30px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    transform: rotateY(-25deg) rotateX(10deg) rotateZ(-2deg) scale(0.9);
+    border-radius: 4px;
+    /* Soft shadow instead of black drop */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    transform: rotateY(-15deg) rotateX(5deg) scale(0.95);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: brightness(0.8) contrast(1.2) sepia(0.2);
+    /* Full color, high contrast */
+    filter: contrast(1.05);
 }
 
 .poster-wrapper:hover .poster-img {
-    transform: rotateY(0) rotateX(0) rotateZ(0) scale(1);
-    filter: brightness(1) contrast(1.1) sepia(0);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95), 0 0 40px var(--accent-glow);
+    transform: rotateY(0) rotateX(0) scale(1);
+    box-shadow:
+        0 35px 60px -15px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .poster-reflection {
+    /* Subtle reflection */
     position: absolute;
-    bottom: -40px;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
-    transform: scaleY(-1) rotateY(-25deg) rotateX(10deg) rotateZ(-2deg) scale(0.9);
-    transform-origin: top;
-    opacity: 0.15;
-    mask-image: linear-gradient(to bottom, black, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    width: 100%;
-    max-width: 400px;
-    margin-left: auto;
-    /* Align with poster */
-}
-
-.poster-wrapper:hover .poster-reflection {
-    transform: scaleY(-1) rotateY(0) rotateX(0) rotateZ(0) scale(1);
-    opacity: 0.2;
-    bottom: -20px;
+    bottom: -30px;
+    display: none;
+    /* Cleaner without reflection in light mode usually, unless handled perfectly */
 }
 
 /* Hero Text */
@@ -242,11 +195,12 @@ nav a.active {
     align-items: center;
     gap: 8px;
     padding: 6px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(234, 88, 12, 0.08);
+    /* Light orange tint */
+    border: 1px solid rgba(234, 88, 12, 0.2);
     border-radius: 99px;
     font-size: 0.85rem;
-    color: var(--accent-light);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 2rem;
@@ -257,34 +211,31 @@ nav a.active {
     font-size: clamp(3rem, 6vw, 5.5rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    /* Solid white for better readability on banner */
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    font-weight: 800;
+    color: var(--text-primary);
+    text-shadow: none;
 }
 
 .hero-subtitle {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-style: italic;
-    color: var(--accent-light);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
     font-weight: 400;
-    opacity: 0.9;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 1;
 }
 
 .hero-desc {
     font-size: 1.1rem;
-    color: #d1d5db;
-    /* Lighter gray for readability */
+    color: var(--text-secondary);
     max-width: 600px;
     margin-bottom: 3rem;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8;
-    border-left: 2px solid var(--accent);
+    border-left: 3px solid var(--accent);
     padding-left: 20px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
 }
 
 /* Buttons */
@@ -296,35 +247,20 @@ nav a.active {
     background: var(--accent);
     color: #fff;
     font-weight: 600;
-    border-radius: 2px;
-    /* Cinematic sharp edges or slight radius */
+    border-radius: 4px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.9rem;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-}
-
-.btn-primary:hover::before {
-    left: 100%;
+    box-shadow: 0 4px 6px rgba(234, 88, 12, 0.2);
 }
 
 .btn-primary:hover {
     background: var(--accent-light);
-    box-shadow: 0 0 30px var(--accent-glow);
     transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(234, 88, 12, 0.3);
 }
 
 .btn-secondary {
@@ -332,39 +268,38 @@ nav a.active {
     align-items: center;
     gap: 10px;
     padding: 16px 32px;
-    background: rgba(0, 0, 0, 0.3);
-    /* Slight background for readability */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-weight: 500;
-    border-radius: 2px;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: var(--text-primary);
+    font-weight: 600;
+    border-radius: 4px;
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.9rem;
-    backdrop-filter: blur(4px);
 }
 
 .btn-secondary:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-primary);
+    background: #f8fafc;
 }
 
 /* Sections */
 section {
-    padding: 140px 0;
+    padding: 120px 0;
     position: relative;
 }
 
 .section-header {
     margin-bottom: 80px;
-    position: relative;
 }
 
 .section-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 20px;
     line-height: 1.1;
+    color: var(--text-primary);
+    font-weight: 800;
 }
 
 .section-title span {
@@ -373,38 +308,22 @@ section {
     font-family: 'Playfair Display', serif;
 }
 
-/* Cards - Glassmorphism Dark */
+/* Cards - Clean Light Style */
 .card {
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
     padding: 40px 30px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
     height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity 0.4s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    background: #181818;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.card:hover::after {
-    opacity: 1;
+    background: #ffffff;
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    border-color: var(--accent-light);
 }
 
 .card-icon {
@@ -422,7 +341,8 @@ section {
     font-size: 1.4rem;
     margin-bottom: 16px;
     font-family: 'Be Vietnam Pro', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 .card p {
@@ -431,46 +351,45 @@ section {
     line-height: 1.7;
 }
 
-/* Member Cards - Cinematic Portrait */
+/* Member Cards - Light Mode Fix */
 .member-card {
     position: relative;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 3/4;
-    /* group: group; - handled by tailwind class in HTML usually, but keeping structure */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
 }
 
 .member-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s ease, filter 0.5s ease;
-    filter: grayscale(100%) contrast(1.1);
+    transition: transform 0.7s ease;
+    filter: none;
+    /* REMOVED GRAYSCALE */
 }
 
 .member-card:hover .member-img {
-    transform: scale(1.05);
-    filter: grayscale(0%) contrast(1.05);
+    transform: scale(1.08);
 }
 
 .member-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+    /* Subtle gradient only at bottom for text readability */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 30%, transparent 60%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 24px;
-    opacity: 0.9;
-    transition: opacity 0.3s;
+    opacity: 1;
+    /* ALWAYS VISIBLE */
 }
 
 .member-info {
-    transform: translateY(10px);
-    transition: transform 0.3s ease;
-}
-
-.member-card:hover .member-info {
+    /* Always visible in formatted state */
     transform: translateY(0);
 }
 
@@ -478,18 +397,17 @@ section {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 4px;
-    color: #fff;
-}
-
-.member-name a {
-    text-decoration: none;
-    color: inherit;
+    color: #ffffff;
+    /* White text on dark overlay */
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .member-role {
-    color: var(--accent);
+    color: #ff9b70;
+    /* Brighter accent for visibility */
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -497,22 +415,21 @@ section {
 /* Rules Section */
 .rule-card {
     padding: 24px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #e2e8f0;
     transition: background 0.3s;
+    background: transparent;
 }
 
 .rule-card:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: #f8fafc;
+    border-radius: 8px;
 }
 
 .rule-card h4 {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    color: #fff;
+    color: var(--text-primary);
     margin-bottom: 8px;
     font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-weight: 600;
 }
 
 .rule-number {
@@ -524,134 +441,85 @@ section {
 
 .rule-card p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    padding-left: 30px;
 }
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid var(--border-color);
+    background: #f1f5f9;
+    /* Light footer */
+    border-top: 1px solid #cbd5e1;
     padding: 100px 0 40px;
 }
 
-/* Utilities */
-.text-gradient {
-    background: linear-gradient(to right, #fff, #999);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+footer .brightness-0.invert {
+    filter: brightness(0);
+    /* Make logo black/dark */
 }
 
-/* Spotlight Effect */
-.poster-spotlight {
-    position: absolute;
-    top: -30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200%;
-    height: 150%;
-    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 2;
-    mix-blend-mode: overlay;
-    opacity: 0;
-    animation: spotlight-fade-in 1.5s ease-out forwards 0.5s;
-}
-
-@keyframes spotlight-fade-in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Backdrop Shadow - The "Ghost" Shadow behind */
-.poster-backdrop-shadow {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    filter: blur(20px);
-    transform: translateZ(-100px) rotateY(-25deg) rotateX(10deg) rotateZ(-2deg) scale(0.95);
-    z-index: -1;
-    opacity: 0.6;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.poster-wrapper:hover .poster-backdrop-shadow {
-    transform: translateZ(-50px) rotateY(0) rotateX(0) rotateZ(0) scale(1);
-    top: 5%;
-    left: 0;
-    opacity: 0.4;
-    filter: blur(30px);
-}
-
-/* Enhanced Feature Cards for Team Section */
+/* Feature Cards (Team Section) */
 .feature-card {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent);
 }
 
-/* Floating Animation for Poster Badge */
-@keyframes float-y {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
+/* Floating Badge */
 .floating-badge {
     animation: float-y 6s ease-in-out infinite;
     z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    /* Light badge */
+    color: var(--text-primary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.floating-badge p {
+    color: var(--text-secondary);
 }
 
 /* -------------------------------------------------------------------------- */
-/* Vintage Diary Book Section                                                 */
+/* Vintage Diary Book Section - Light/Paper Theme                             */
 /* -------------------------------------------------------------------------- */
 
 #memories {
-    overflow: hidden;
-    /* Enhance 3D effect containment */
+    overflow: visible;
+    padding-bottom: 60px;
 }
 
 .diary-stage {
     width: 100%;
-    max-width: 1100px;
+    max-width: 900px;
     margin: 0 auto;
     perspective: 2500px;
-    /* High perspective for less distortion */
-    padding: 20px 20px 60px 20px;
+    padding: 40px 20px 80px 20px;
+}
+
+/* Book Wrapper - Container chính cho cả cover và nội dung */
+.diary-book-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.4;
+    max-height: 600px;
+    margin: 0 auto;
 }
 
 .diary-book {
     position: relative;
     width: 100%;
     aspect-ratio: 1.6;
-    /* Landscape book */
     transform-style: preserve-3d;
     transition: transform 0.6s;
     margin-bottom: 1rem;
 }
 
-/* Mobile: Single page portrait */
 @media (max-width: 768px) {
     .diary-book {
         aspect-ratio: 0.75;
@@ -660,47 +528,36 @@ footer {
     }
 }
 
-/* The Pages Container */
-.diary-pages {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-}
-
-/* Page Common Styles - Dark Theme */
 .diary-page {
     position: absolute;
     top: 0;
     height: 100%;
     width: 50%;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
-    background-image:
-        linear-gradient(to right, rgba(255, 155, 112, 0.03) 0%, transparent 10%),
-        /* Spine glow */
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 100px rgba(255, 155, 112, 0.02);
+    /* Paper Texture background */
+    background: #fffdf9;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    /* Subtle inner shadow */
     display: flex;
     flex-direction: column;
     padding: 0;
     backface-visibility: hidden;
     overflow: hidden;
-    border: 1px solid rgba(255, 155, 112, 0.1);
+    border: 1px solid #e5e7eb;
 }
 
 @media (max-width: 768px) {
     .diary-page {
         width: 100%;
-        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
     }
 }
 
-/* Positioning Pages */
 .diary-page.left {
     left: 0;
     transform-origin: right center;
     border-radius: 4px 0 0 4px;
-    border-right: none;
+    border-right: 1px solid #d1d5db;
+    /* Spine center line */
     z-index: 1;
 }
 
@@ -712,7 +569,38 @@ footer {
     z-index: 1;
 }
 
-/* Flipper Logic */
+/* Flipper Faces - Light Theme */
+.flipper-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #fffdf9;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03);
+}
+
+.flipper-face.front {
+    transform: rotateY(0deg);
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 2;
+    background: linear-gradient(to right, #f3f4f6 0%, #fffdf9 10%);
+    /* Shadow towards spine */
+}
+
+.flipper-face.back {
+    transform: rotateY(180deg);
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    background: linear-gradient(to left, #f3f4f6 0%, #fffdf9 10%);
+}
+
 .page-flipper {
     position: absolute;
     top: 0;
@@ -734,55 +622,11 @@ footer {
     }
 }
 
-/* Flipper Faces - Dark Theme */
-.flipper-face {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
-    background-image:
-        linear-gradient(to right, rgba(255, 155, 112, 0.03) 0%, transparent 10%),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-    border: 1px solid rgba(255, 155, 112, 0.1);
-    display: flex;
-    flex-direction: column;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
-}
-
-.flipper-face.front {
-    transform: rotateY(0deg);
-    border-radius: 0 4px 4px 0;
-    border-left: 1px solid rgba(255, 155, 112, 0.05);
-    z-index: 2;
-    background-image: linear-gradient(to right, rgba(255, 155, 112, 0.05) 0%, transparent 10%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-}
-
-.flipper-face.back {
-    transform: rotateY(180deg);
-    border-radius: 4px 0 0 4px;
-    border-right: 1px solid rgba(255, 155, 112, 0.05);
-    z-index: 1;
-    background-image: linear-gradient(to left, rgba(255, 155, 112, 0.05) 0%, transparent 10%), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-}
-
-/* Fix mobile flipper faces */
-@media (max-width: 768px) {
-
-    .flipper-face.front,
-    .flipper-face.back {
-        border-radius: 2px;
-    }
-}
-
-/* Content Styling inside Page - Dark Theme */
+/* Content inside Page */
 .page-inner {
     width: 100%;
     height: 100%;
     padding: 2px;
-    /* Outer padding */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -792,38 +636,36 @@ footer {
 
 .tape-strip {
     position: absolute;
-    top: 5%;
+    top: 2%;
     left: 50%;
     transform: translateX(-50%) rotate(-2deg);
     width: 30%;
-    height: 24px;
-    background: rgba(255, 155, 112, 0.15);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    height: 20px;
+    background: rgba(234, 88, 12, 0.15);
+    /* Orange tape */
     opacity: 0.6;
     z-index: 10;
-    border: 1px solid rgba(255, 155, 112, 0.1);
 }
 
 .page-content-wrapper {
     width: 85%;
     height: 80%;
-    background: linear-gradient(145deg, #252525 0%, #1a1a1a 100%);
+    background: #ffffff;
     padding: 10px 10px 40px 10px;
-    /* Polaroid style - Dark */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    /* Polaroid Style - Clean */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     transform: rotate(1deg);
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid rgba(255, 155, 112, 0.1);
+    border: 1px solid #f0f0f0;
 }
 
 .page-content-wrapper:hover {
     transform: rotate(0deg) scale(1.02);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 155, 112, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
     z-index: 20;
-    border-color: rgba(255, 155, 112, 0.2);
 }
 
 .page-media-container {
@@ -831,16 +673,14 @@ footer {
     flex: 1;
     position: relative;
     overflow: hidden;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #f8fafc;
 }
 
 .page-media {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.9) contrast(1.05);
-    transition: all 0.5s;
+    filter: none;
 }
 
 .video-play-btn {
@@ -850,40 +690,25 @@ footer {
     transform: translate(-50%, -50%);
     width: 44px;
     height: 44px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    border: 2px solid rgba(255, 155, 112, 0.5);
-    transition: all 0.3s;
-    font-size: 1.2rem;
-    pointer-events: none;
+    color: var(--accent);
+    border: 2px solid var(--accent);
     backdrop-filter: blur(4px);
-}
-
-.page-content-wrapper:hover .page-media {
-    filter: brightness(1) contrast(1.1);
-}
-
-.page-content-wrapper:hover .video-play-btn {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translate(-50%, -50%) scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 155, 112, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .page-caption {
     font-family: 'Playfair Display', serif;
     font-size: clamp(0.8rem, 1.5vw, 1.1rem);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     text-align: center;
     margin-top: 10px;
     font-style: italic;
     font-weight: 500;
-    line-height: 1.2;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Controls */
@@ -898,8 +723,8 @@ footer {
 }
 
 .diary-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: white;
+    border: 1px solid #e2e8f0;
     color: var(--text-secondary);
     width: 44px;
     height: 44px;
@@ -910,6 +735,7 @@ footer {
     cursor: pointer;
     transition: all 0.3s;
     font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .diary-btn:hover:not(:disabled) {
@@ -917,57 +743,24 @@ footer {
     color: white;
     border-color: var(--accent);
     transform: scale(1.1);
-    box-shadow: 0 0 15px var(--accent-glow);
+    box-shadow: 0 5px 15px var(--accent-glow);
 }
 
 .diary-btn:disabled {
-    opacity: 0.3;
+    opacity: 0.5;
     cursor: not-allowed;
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-/* Auto-play button */
-.diary-btn-autoplay {
-    background: rgba(255, 155, 112, 0.1);
-    border-color: rgba(255, 155, 112, 0.3);
-}
-
-.diary-btn-autoplay:hover:not(:disabled) {
-    background: rgba(255, 155, 112, 0.8);
-    border-color: rgba(255, 155, 112, 0.8);
 }
 
 .page-number {
     font-family: 'Courier New', monospace;
-    color: #888;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    min-width: 80px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-secondary);
+    font-weight: 600;
+    background: #f1f5f9;
     padding: 4px 12px;
     border-radius: 12px;
 }
 
-/* -------------------------------------------------------------------------- */
-/* Dark Book Cover Styles                                                      */
-/* -------------------------------------------------------------------------- */
-
-.diary-book-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1.6;
-}
-
-@media (max-width: 768px) {
-    .diary-book-wrapper {
-        aspect-ratio: 0.75;
-        max-width: 450px;
-        margin: 0 auto;
-    }
-}
-
-/* Book Cover - Dark Theme */
+/* Book Cover - 3D Book Appearance */
 .book-cover {
     position: absolute;
     inset: 0;
@@ -975,87 +768,111 @@ footer {
     cursor: pointer;
     perspective: 2000px;
     transform-style: preserve-3d;
+    z-index: 50;
 }
 
+.book-cover.hidden {
+    display: none;
+}
+
+/* Gáy sách (Spine) - với hiệu ứng 3D */
 .book-cover-spine {
-    width: 30px;
+    width: 40px;
     background: linear-gradient(to right,
-            #0d0d0d 0%,
-            #1a1a1a 30%,
-            #252525 50%,
-            #1a1a1a 70%,
-            #0d0d0d 100%);
+            #c2410c 0%,
+            #ea580c 20%,
+            #f97316 50%,
+            #ea580c 80%,
+            #c2410c 100%);
+    border-radius: 8px 0 0 8px;
     box-shadow:
-        inset -3px 0 8px rgba(255, 155, 112, 0.1),
-        inset 3px 0 8px rgba(0, 0, 0, 0.5),
-        2px 0 10px rgba(0, 0, 0, 0.8);
-    border-radius: 4px 0 0 4px;
-    flex-shrink: 0;
+        inset -5px 0 15px rgba(0, 0, 0, 0.2),
+        -3px 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
+/* Đường kẻ trên gáy sách */
+.book-cover-spine::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 50%;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%);
+}
+
+/* Bìa trước */
 .book-cover-front {
     flex: 1;
-    background: linear-gradient(135deg,
-            #1a1a1a 0%,
-            #0d0d0d 50%,
-            #1a1a1a 100%);
-    border-radius: 0 8px 8px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    border-radius: 0 12px 12px 0;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-origin: left center;
-    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.4s ease;
     box-shadow:
-        5px 5px 30px rgba(0, 0, 0, 0.8),
-        inset 0 0 50px rgba(0, 0, 0, 0.3),
-        inset 0 0 100px rgba(255, 155, 112, 0.03);
-    border: 1px solid rgba(255, 155, 112, 0.15);
+        5px 5px 25px rgba(0, 0, 0, 0.15),
+        15px 0 35px -10px rgba(0, 0, 0, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e2e8f0;
+    border-left: none;
     overflow: hidden;
 }
 
+/* Texture cho bìa */
 .book-cover-texture {
     position: absolute;
     inset: 0;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
     pointer-events: none;
 }
 
 .book-cover-content {
     text-align: center;
-    padding: 40px;
+    padding: 40px 30px;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.book-cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--accent);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.book-cover-subtitle {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Trang trí trên/dưới tiêu đề */
 .book-cover-ornament {
     width: 120px;
     height: 2px;
-    background: linear-gradient(to right,
-            transparent,
-            rgba(255, 155, 112, 0.6),
-            transparent);
-    margin: 0 auto;
-    position: relative;
-}
-
-.book-cover-ornament::before,
-.book-cover-ornament::after {
-    content: '✦';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 155, 112, 0.6);
-    font-size: 10px;
-}
-
-.book-cover-ornament::before {
-    left: -15px;
-}
-
-.book-cover-ornament::after {
-    right: -15px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .book-cover-ornament.top {
@@ -1066,122 +883,119 @@ footer {
     margin-top: 30px;
 }
 
-.book-cover-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #ff9b70;
-    text-shadow:
-        0 0 20px rgba(255, 155, 112, 0.4),
-        0 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 4px;
-    margin-bottom: 12px;
+.book-cover-ornament::before,
+.book-cover-ornament::after {
+    color: var(--accent);
+    content: '✦';
+    font-size: 0.8rem;
+    position: absolute;
 }
 
-.book-cover-subtitle {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 300;
-    letter-spacing: 2px;
+.book-cover-ornament::before {
+    margin-right: 140px;
 }
 
+.book-cover-ornament::after {
+    margin-left: 140px;
+}
+
+/* Gợi ý click */
 .book-cover-hint {
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.85rem;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
     animation: pulse-hint 2s ease-in-out infinite;
+    padding: 10px 20px;
+    background: rgba(234, 88, 12, 0.05);
+    border-radius: 30px;
+    border: 1px solid rgba(234, 88, 12, 0.1);
 }
 
 .book-cover-hint i {
     font-size: 1.2rem;
+    color: var(--accent);
 }
 
 @keyframes pulse-hint {
 
     0%,
     100% {
-        opacity: 0.4;
+        opacity: 0.6;
         transform: translateY(0);
     }
 
     50% {
-        opacity: 0.8;
-        transform: translateY(-3px);
+        opacity: 1;
+        transform: translateY(-5px);
     }
 }
 
-/* Hover Effects */
+/* Hover Effect - Hé lộ trang bên trong */
 .book-cover:hover .book-cover-front {
-    transform: rotateY(-15deg);
+    transform: rotateY(-20deg);
     box-shadow:
-        10px 5px 40px rgba(0, 0, 0, 0.9),
-        inset 0 0 50px rgba(0, 0, 0, 0.3),
-        inset 0 0 100px rgba(255, 155, 112, 0.05);
+        15px 8px 40px rgba(0, 0, 0, 0.2),
+        25px 0 50px -15px rgba(0, 0, 0, 0.15);
 }
 
-.book-cover:hover .book-cover-title {
-    text-shadow:
-        0 0 30px rgba(255, 155, 112, 0.6),
-        0 2px 4px rgba(0, 0, 0, 0.5);
+/* Bìa sau (hiện khi hover) */
+.book-cover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 0 10px 10px 0;
+    z-index: -1;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
 }
 
-.book-cover:hover .book-cover-hint {
-    color: rgba(255, 155, 112, 0.8);
-}
-
-/* Opening Animation */
+/* Animation khi mở sách */
 .book-cover.opening .book-cover-front {
     transform: rotateY(-180deg);
 }
 
-/* Close button style */
-.diary-btn-close {
-    background: rgba(255, 100, 100, 0.1);
-    border-color: rgba(255, 100, 100, 0.3);
-}
-
-.diary-btn-close:hover:not(:disabled) {
-    background: rgba(255, 100, 100, 0.8);
-    border-color: rgba(255, 100, 100, 0.8);
-}
-
-/* Mobile adjustments */
+/* Responsive cho mobile */
 @media (max-width: 768px) {
+    .diary-book-wrapper {
+        aspect-ratio: 0.8;
+        max-height: 500px;
+    }
+
     .book-cover-spine {
-        width: 20px;
-    }
-
-    .book-cover-title {
-        font-size: 1.8rem;
-        letter-spacing: 2px;
-    }
-
-    .book-cover-subtitle {
-        font-size: 0.85rem;
+        width: 25px;
     }
 
     .book-cover-content {
-        padding: 30px;
+        padding: 30px 20px;
     }
 
     .book-cover-ornament {
         width: 80px;
     }
 
-    .book-cover-ornament.top {
-        margin-bottom: 20px;
+    .book-cover-ornament::before {
+        margin-right: 100px;
     }
 
-    .book-cover-ornament.bottom {
-        margin-top: 20px;
+    .book-cover-ornament::after {
+        margin-left: 100px;
     }
 
     .book-cover-hint {
         margin-top: 30px;
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    .book-cover::after {
+        left: 25px;
     }
 }
